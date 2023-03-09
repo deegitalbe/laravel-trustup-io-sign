@@ -1,16 +1,11 @@
 {
-    "name": "versioning-package-template",
-    "version": "1.3.3",
+    "name": "deegitalebe/packagesign",
+    "version": "1.0.0",
     "main": "index.js",
-    "repository": "git@github.com:henrotaym/versioning-package-template.git",
-    "author": "Mathieu Henrotay <mathieu.henrotay@gmail.com>",
+    "repository": "git@github.com:deegitalbe/laravel-trustup-io-sign.git",
+    "author": "Pierre Wasilewski, Mathieu Henrotay <pierre.wasilewski@trustup.be>",
     "license": "MIT",
     "scripts": {
-        "postversion": "npm run push",
-        "commit": "gitmoji -c && npm run push",
-        "push": "git push && git push --tags",
-        "commit:all": "git add . && npm run commit",
-        "alpha": "npm version --preid=alpha",
-        "version:alpha": "npm version prerelease --preid=alpha"
+        "postversion": "git push && git push --tags"
     }
 }

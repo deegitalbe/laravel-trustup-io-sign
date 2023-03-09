@@ -1,12 +1,16 @@
 <?php
-namespace Henrotaym\VersioningPackageTemplate\Tests\Unit;
+namespace Deegitalebe\PackageSign\Tests\Unit;
 
-use Henrotaym\VersioningPackageTemplate\Tests\TestCase;
+use Deegitalebe\PackageSign\Tests\TestCase;
+use Deegitalebe\PackageSign\Facades\PackageSignFacade;
 
 class ExampleUnitTest extends TestCase
 {
-    public function test_it_can_assert_true()
+    public function test_it_can_instanciate_facade()
     {
-        $this->assertTrue(true);
+        $this->assertInstanceOf(
+            PackageSignFacade::class,
+            $this->app->make(PackageSignFacade::class)
+        );
     }
 }

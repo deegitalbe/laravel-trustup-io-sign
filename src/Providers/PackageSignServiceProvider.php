@@ -1,14 +1,14 @@
 <?php
-namespace Henrotaym\VersioningPackageTemplate\Providers;
+namespace Deegitalebe\PackageSign\Providers;
 
-use Henrotaym\VersioningPackageTemplate\VersioningPackageTemplate;
+use Deegitalebe\PackageSign\PackageSign;
 use Henrotaym\LaravelPackageVersioning\Providers\Abstracts\VersionablePackageServiceProvider;
 
-class VersioningPackageTemplateServiceProvider extends VersionablePackageServiceProvider
+class PackageSignServiceProvider extends VersionablePackageServiceProvider
 {
     public static function getPackageClass(): string
     {
-        return VersioningPackageTemplate::class;
+        return PackageSign::class;
     }
 
     protected function addToRegister(): void

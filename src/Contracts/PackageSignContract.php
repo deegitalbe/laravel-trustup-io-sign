@@ -1,13 +1,13 @@
 <?php
-namespace Henrotaym\VersioningPackageTemplate\Contracts;
+namespace Deegitalebe\PackageSign\Contracts;
 
 use Henrotaym\LaravelPackageVersioning\Services\Versioning\Contracts\VersionablePackageContract;
 use Henrotaym\LaravelContainerAutoRegister\Services\AutoRegister\Contracts\AutoRegistrableContract;
 
 /**
- * Versioning package.
+ * PackageSign package facade implementation contract.
  */
-interface VersioningPackageTemplateContract extends VersionablePackageContract, AutoRegistrableContract
+interface PackageSignContract extends VersionablePackageContract, AutoRegistrableContract
 {
     
 }

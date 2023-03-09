@@ -1,15 +1,15 @@
 <?php
-namespace Henrotaym\VersioningPackageTemplate\Tests;
+namespace Deegitalebe\PackageSign\Tests;
 
-use Henrotaym\VersioningPackageTemplate\VersioningPackageTemplate;
+use Deegitalebe\PackageSign\PackageSign;
 use Henrotaym\LaravelPackageVersioning\Testing\VersionablePackageTestCase;
-use Henrotaym\VersioningPackageTemplate\Providers\VersioningPackageTemplateServiceProvider;
+use Deegitalebe\PackageSign\Providers\PackageSignServiceProvider;
 
 class TestCase extends VersionablePackageTestCase
 {
     public static function getPackageClass(): string
     {
-        return VersioningPackageTemplate::class;
+        return PackageSign::class;
     }
 
     public function getEnvironmentSetUp($app)
@@ -20,7 +20,7 @@ class TestCase extends VersionablePackageTestCase
     public function getServiceProviders(): array
     {
         return [
-            VersioningPackageTemplateServiceProvider::class
+            PackageSignServiceProvider::class
         ];
     }
 

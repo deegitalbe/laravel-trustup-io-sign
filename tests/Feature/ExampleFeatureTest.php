@@ -1,7 +1,7 @@
 <?php
-namespace Henrotaym\VersioningPackageTemplate\Tests\Feature;
+namespace Deegitalebe\PackageSign\Tests\Feature;
 
-use Henrotaym\VersioningPackageTemplate\Tests\TestCase;
+use Deegitalebe\PackageSign\Tests\TestCase;
 
 class ExampleFeatureTest extends TestCase
 {
