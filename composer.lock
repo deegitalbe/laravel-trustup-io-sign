@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "a690ed6a78577081b1f1db3d5ebbb67e",
+    "content-hash": "a60b79307f2c2b5893df6de6bbcfe6e8",
     "packages": [
         {
             "name": "deegitalbe/laravel-trustup-io-external-model-relations",
