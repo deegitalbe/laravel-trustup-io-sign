@@ -20,7 +20,7 @@ interface TrustupIoSignedDocumentContract
     public function getDocumentUuid(): string;
     public function getSignedAt(): string;
 
-    /** @return Collection<int, MediaContract> */
+    /** @return Collection */
     public function getDocument(): Collection;
 
     public function setId(int $id): TrustupIoSignedDocumentContract;

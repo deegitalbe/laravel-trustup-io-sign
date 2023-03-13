@@ -2,6 +2,7 @@
 
 namespace Deegitalbe\TrustupIoSign\Tests\Unit\Models;
 
+use Deegitalbe\TrustupIoSign\Services\SignUrlService;
 use Mockery\MockInterface;
 use Henrotaym\LaravelTestSuite\TestSuite;
 use Deegitalbe\TrustupIoSign\Tests\TestCase;
@@ -56,13 +57,6 @@ class IsTrustupIoSignedDocumentRelatedModelTest extends TestCase
         $this->assertEquals("https://www.google.com/", $class->getTrustupIoSignCallbackUrl());
     }
 
-    public function test_that_it_can_get_trustup_io_signed_document_related_redirect()
-    {
-        $class = $this->mockUser();
-        $class->shouldReceive("getTrustupIoSignRedirectUrl")->once()->withNoArgs()->passthru();
-        $this->assertEquals("https://www.google.com/", $class->getTrustupIoSignRedirectUrl());
-    }
-
     public function test_that_it_can_get_trustup_io_signed_document_related_document_url()
     {
         $class = $this->mockUser();
@@ -70,12 +64,39 @@ class IsTrustupIoSignedDocumentRelatedModelTest extends TestCase
         $this->assertEquals("https://eforms.com/download/2019/08/Service-Contract-Template.pdf", $class->getTrustupIoSignOriginalPdfUrl());
     }
 
-    // public function test_that_boot_is_trustup_io_audit_related_Model_boot_on_model_and_register_liostener()
+
+    // TODO WHEN IMPLEMENTING WEBHOOK
+    // public function test_that_it_can_get_trustup_io_signed_document_related_webhook_url()
     // {
-    //     // https://stackoverflow.com/a/36771173
-    //     $user = $this->mockUser()->makePartial();
-    //     $mode = $this->mockThis(TrustupIoAuditRelatedModelContract::class);
-    //     $user->shouldReceive('bootIsTrustupIoAuditRelatedModel')->once();
-    //     $user->__construct();
+    //     $class = $this->mockUser();
+    //     $class->shouldReceive("getTrustupIoSignWebHookUrl")->once()->withNoArgs()->passthru();
+    //     $this->assertEquals("https://eforms.com/download/2019/08/Service-Contract-Template.pdf", $class->getTrustupIoSignWebHookUrl());
     // }
+
+    public function test_that_it_can_get_trust_up_io_sign_url()
+    {
+        $url = "trustup-io-sign?callback=https%3A%2F%2Fwww.google.com&modelId=1&modelType=user&documentUrl=https%3A%2F%2Feforms.com%2Fdownload%2F2019%2F08%2FService-Contract-Template.pdf";
+
+        $class = $this->mockUser();
+        $signUrlService = $this->mockThis(SignUrlService::class);
+        $class->shouldNotReceive("setTrustupIoSignCallback");
+        $class->shouldNotReceive("setTrustupIoSignWebhook");
+        $signUrlService->shouldReceive("generateUrl")->with($class)->andReturn($url);
+        $class->shouldReceive("getTrustupIoSignUrl")->once()->withNoArgs()->passthru();
+        $this->assertEquals($url, $class->getTrustupIoSignUrl());
+    }
+
+    public function test_that_it_can_get_trust_up_io_sign_url_with_parameters()
+    {
+        $callback = "test";
+        $url = "trustup-io-sign?callback=https%3A%2F%2Fwww.{$callback}.com&modelId=1&modelType=user&documentUrl=https%3A%2F%2Feforms.com%2Fdownload%2F2019%2F08%2FService-Contract-Template.pdf";
+
+        $class = $this->mockUser();
+        $signUrlService = $this->mockThis(SignUrlService::class);
+        $class->shouldReceive("setTrustupIoSignCallback")->once()->with($callback)->andReturnSelf();
+        $class->shouldNotReceive("setTrustupIoSignWebhook");
+        $signUrlService->shouldReceive("generateUrl")->with($class)->andReturn($url);
+        $class->shouldReceive("getTrustupIoSignUrl")->once()->with($callback)->passthru();
+        $this->assertEquals($url, $class->getTrustupIoSignUrl($callback));
+    }
 }

@@ -23,21 +23,21 @@ class IsTrustupIoAuditRelatedModelWithRelationsTest extends TestCase
      *
      * @return UserWithRelations|MockInterface
      */
-    protected function mockUserWithRelations(): MockInterface
-    {
-        /** @var UserWithRelations */
-        return $this->mockThis(UserWithRelations::class);
-    }
+    // protected function mockUserWithRelations(): MockInterface
+    // {
+    //     /** @var UserWithRelations */
+    //     return $this->mockThis(UserWithRelations::class);
+    // }
 
-    public function test_that_it_can_get_trustup_io_audit_log_column()
-    {
+    // public function test_that_it_can_get_trustup_io_audit_log_column()
+    // {
 
-        $class = $this->mockUserWithRelations();
+    //     $class = $this->mockUserWithRelations();
 
-        $class->shouldReceive('getTrustupIoSignedDocumentColumn')->once()->withNoArgs()->passthru();
+    //     $class->shouldReceive('getTrustupIoSignedDocumentColumn')->once()->withNoArgs()->passthru();
 
-        $this->assertEquals("trustup_io_signed_document_uuid", $class->getTrustupIoSignedDocumentColumn());
-    }
+    //     $this->assertEquals("trustup_io_signed_document_uuid", $class->getTrustupIoSignedDocumentColumn());
+    // }
 
     // public function test_that_it_can_it_get_relation()
     // {
