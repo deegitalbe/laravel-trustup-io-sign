@@ -1,6 +1,6 @@
 <?php
 
-namespace Deegitalbe\TrustupIoSign\Contracts\api\Requests\SignedDocument;
+namespace Deegitalbe\TrustupIoSign\Contracts\Api\Requests\SignedDocument;
 
 use Illuminate\Support\Collection;
 

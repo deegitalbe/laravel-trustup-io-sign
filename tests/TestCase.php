@@ -2,17 +2,17 @@
 
 namespace Deegitalbe\TrustupIoSign\Tests;
 
-use Deegitalebe\PackageSign\PackageSign;
 use Henrotaym\LaravelApiClient\Providers\ClientServiceProvider;
-use Deegitalbe\PackageSign\Providers\PackageSignServiceProvider;
 use Henrotaym\LaravelPackageVersioning\Testing\VersionablePackageTestCase;
 use Deegitalbe\LaravelTrustupIoExternalModelRelations\Providers\LaravelTrustupIoExternalModelRelationsServiceProvider;
+use Deegitalbe\TrustupIoSign\Providers\TrustupIoSignServiceProvider;
+use Deegitalbe\TrustupIoSign\TrustupIoSign;
 
 class TestCase extends VersionablePackageTestCase
 {
     public static function getPackageClass(): string
     {
-        return PackageSign::class;
+        return TrustupIoSign::class;
     }
 
     // public function getEnvironmentSetUp($app)
@@ -23,7 +23,7 @@ class TestCase extends VersionablePackageTestCase
     public function getServiceProviders(): array
     {
         return [
-            PackageSignServiceProvider::class,
+            TrustupIoSignServiceProvider::class,
             LaravelTrustupIoExternalModelRelationsServiceProvider::class,
             ClientServiceProvider::class,
         ];

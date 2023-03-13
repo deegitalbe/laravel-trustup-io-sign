@@ -1,9 +1,9 @@
 <?php
 
-namespace Deegitalbe\TrustupIoSign\api\Requests\SignedDocument;
+namespace Deegitalbe\TrustupIoSign\Api\Requests\SignedDocument;
 
 use Illuminate\Support\Collection;
-use Deegitalbe\TrustupIoSign\Contracts\api\Requests\SignedDocument\IndexSignedDocumentRequestContract;
+use Deegitalbe\TrustupIoSign\Contracts\Api\Requests\SignedDocument\IndexSignedDocumentRequestContract;
 
 class IndexSignedDocumentRequest implements IndexSignedDocumentRequestContract
 {

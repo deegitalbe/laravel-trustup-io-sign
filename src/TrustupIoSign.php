@@ -2,18 +2,18 @@
 
 namespace Deegitalbe\TrustupIoSign;
 
-use Deegitalbe\TrustupIoSign\Contracts\PackageSignContract;
+use Deegitalbe\TrustupIoSign\Contracts\TrustupIoSignContract;
 use Henrotaym\LaravelPackageVersioning\Services\Versioning\VersionablePackage;
 
 /**
  *  @method static string getUrl() 
  */
 
-class PackageSign extends VersionablePackage implements PackageSignContract
+class TrustupIoSign extends VersionablePackage implements TrustupIoSignContract
 {
     public static function prefix(): string
     {
-        return "package_sign";
+        return "laravel-trustup-io-sign";
     }
 
     public function getUrl(): string

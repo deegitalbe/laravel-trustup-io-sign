@@ -8,6 +8,6 @@ use Henrotaym\LaravelContainerAutoRegister\Services\AutoRegister\Contracts\AutoR
 /**
  * PackageSign package facade implementation contract.
  */
-interface PackageSignContract extends VersionablePackageContract, AutoRegistrableContract
+interface TrustupIoSignContract extends VersionablePackageContract, AutoRegistrableContract
 {
 }

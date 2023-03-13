@@ -11,7 +11,7 @@ use Deegitalbe\TrustupIoSign\Models\IsTrustupIoSignedDocumentRelatedModelWithRel
 
 trait DefaultTrustupIoSignedDocumentRelatedModel
 {
-    use IsExternalModelRelated, ModelsIsTrustupIoSignedDocumentRelatedModelWithRelations;
+    use IsExternalModelRelated, ModelsIsTrustupIoSignedDocumentRelatedModelWithRelations, IsTrustupIoSignedDocumentRelatedModel;
 
     public function trustupIoSignedDocument(): ExternalModelRelationContract
     {

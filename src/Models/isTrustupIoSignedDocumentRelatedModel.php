@@ -3,8 +3,9 @@
 namespace Deegitalbe\TrustupIoSign\Models;
 
 use Illuminate\Support\Str;
-use Deegitalebe\PackageSign\Services\SignUrlService;
-use Deegitalbe\TrustupIoSign\Facades\PackageSignFacade as FacadesPackageSignFacade;
+use Deegitalbe\TrustupIoSign\Services\SignUrlService;
+use Deegitalbe\TrustupIoSign\Facades\TrustupIoSign as FacadesTrustupIoSign;
+use Deegitalbe\TrustupIoSign\Facades\TrustupIoSignFacade;
 
 trait IsTrustupIoSignedDocumentRelatedModel
 {
@@ -34,7 +35,7 @@ trait IsTrustupIoSignedDocumentRelatedModel
 
     public function getTrustupIoSignAppKey(): string
     {
-        return FacadesPackageSignFacade::getConfig("app_key");
+        return TrustupIoSignFacade::getConfig("app_key");
     }
 
     public function getTrustupIoSignWebHookUrl(): string

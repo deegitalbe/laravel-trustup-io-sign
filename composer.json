@@ -1,5 +1,5 @@
 {
-    "name": "deegitalebe/package-sign",
+    "name": "deegitalbe/laravel-trustup-io-sign",
     "description": "Sign url builder.",
     "type": "library",
     "license": "MIT",
@@ -20,7 +20,7 @@
     },
     "autoload": {
         "psr-4": {
-            "Deegitalbe\\TrustupIoSign": "src"
+            "Deegitalbe\\TrustupIoSign\\": "src"
         }
     },
     "autoload-dev": {
@@ -31,7 +31,7 @@
     "extra": {
         "laravel": {
             "providers": [
-                "Deegitalebe\\PackageSign\\Providers\\PackageSignServiceProvider"
+                "Deegitalbe\\TrustupIoSign\\Providers\\TrustupIoSignServiceProvider"
             ]
         }
     }

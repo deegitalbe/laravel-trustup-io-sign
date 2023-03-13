@@ -2,12 +2,13 @@
 
 namespace Deegitalbe\TrustupIoSign\Facades;
 
+use Deegitalbe\TrustupIoSign\TrustupIoSign as PackageClass;
 use Henrotaym\LaravelPackageVersioning\Facades\Abstracts\VersionablePackageFacade;
 
-class PackageSignFacade extends VersionablePackageFacade
+class TrustupIoSignFacade extends VersionablePackageFacade
 {
     public static function getPackageClass(): string
     {
-        return PackageSignFacade::class;
+        return PackageClass::class;
     }
 }

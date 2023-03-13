@@ -145,7 +145,9 @@ class TrustupIoSignedDocument implements TrustupIoSignedDocumentContract
             ->setLongitude($attributes['longitude'])
             ->setLatitude($attributes['latittude'])
             ->setSignedAt($attributes['signedAt'])
-            ->setTimezone($attributes['timezone']);
+            ->setTimezone($attributes['timezone'])
+            ->setDocument($attributes['document']);
+
         return $this;
     }
 }

@@ -2,7 +2,8 @@
 
 namespace Deegitalbe\TrustupIoSign\Api\Credentials;
 
-use Deegitalebe\PackageSign\Facades\PackageSignFacade;
+use Deegitalbe\TrustupIoSign\Facades\TrustupIoSign;
+use Deegitalbe\TrustupIoSign\Facades\TrustupIoSignFacade;
 use Henrotaym\LaravelApiClient\JsonCredential;
 use Henrotaym\LaravelApiClient\Contracts\RequestContract;
 
@@ -11,6 +12,6 @@ class SignedDocumentCredential extends JsonCredential
     public function prepare(RequestContract &$request)
     {
         parent::prepare($request);
-        $request->setBaseUrl(PackageSignFacade::getUrl() . '/api');
+        $request->setBaseUrl(TrustupIoSignFacade::getUrl() . '/api');
     }
 }
