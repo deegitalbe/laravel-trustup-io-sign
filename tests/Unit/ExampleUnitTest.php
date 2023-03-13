@@ -1,8 +1,9 @@
 <?php
-namespace Deegitalebe\PackageSign\Tests\Unit;
 
-use Deegitalebe\PackageSign\Tests\TestCase;
-use Deegitalebe\PackageSign\Facades\PackageSignFacade;
+namespace Deegitalbe\TrustupIoSign\Tests\Unit;
+
+use Deegitalbe\TrustupIoSign\Tests\TestCase;
+use Deegitalbe\PackageSign\Facades\PackageSignFacade;
 
 class ExampleUnitTest extends TestCase
 {

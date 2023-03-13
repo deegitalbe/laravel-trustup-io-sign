@@ -1,11 +1,11 @@
 <?php
 
-namespace Deegitalebe\PackageSign\Tests\Models;
+namespace Deegitalbe\TrustupIoSign\Tests\Models;
 
 use Illuminate\Foundation\Auth\User;
 use Illuminate\Database\Eloquent\SoftDeletes;
-use Deegitalebe\PackageSign\Contracts\Models\TrustupIoSignedDocumentRelatedModelWithRelationsContract;
-use Deegitalebe\PackageSign\Models\IsTrustupIoSignedDocumentRelatedModelWithRelations;
+use Deegitalbe\TrustupIoSign\Models\IsTrustupIoSignedDocumentRelatedModelWithRelations;
+use Deegitalbe\TrustupIoSign\Contracts\Models\TrustupIoSignedDocumentRelatedModelWithRelationsContract;
 
 class UserWithRelations extends User implements TrustupIoSignedDocumentRelatedModelWithRelationsContract
 {

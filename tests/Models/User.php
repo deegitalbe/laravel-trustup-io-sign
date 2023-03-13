@@ -1,11 +1,11 @@
 <?php
 
-namespace Deegitalebe\PackageSign\Tests\Models;
+namespace Deegitalbe\TrustupIoSign\Tests\Models;
 
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Foundation\Auth\User as BaseUser;
-use Deegitalebe\PackageSign\Contracts\Models\TrustupIoSignedDocumentRelatedModelContract;
 use Deegitalebe\PackageSign\Models\IsTrustupIoSignedDocumentRelatedModel;
+use Deegitalbe\TrustupIoSign\Contracts\Models\TrustupIoSignedDocumentRelatedModelContract;
 
 class User extends BaseUser implements TrustupIoSignedDocumentRelatedModelContract
 {

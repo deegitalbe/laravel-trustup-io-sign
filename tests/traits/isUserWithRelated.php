@@ -1,9 +1,9 @@
 <?php
 
-namespace Deegitalebe\PackageSign\Tests\traits;
+namespace Deegitalbe\TrustupIoSign\Tests\traits;
 
-use Deegitalebe\PackageSign\Tests\Models\User;
-use Deegitalebe\PackageSign\Tests\Models\UserWithRelations;
+use Deegitalbe\TrustupIoSign\Tests\Models\User;
+use Deegitalbe\TrustupIoSign\Tests\Models\UserWithRelations;
 use Deegitalbe\LaravelTrustupIoAudit\Tests\Unit\database\migrations\CreateUsersTable;
 use Deegitalbe\LaravelTrustupIoAudit\Tests\Unit\database\migrations\CreateUsersWithRelationsTable;
 

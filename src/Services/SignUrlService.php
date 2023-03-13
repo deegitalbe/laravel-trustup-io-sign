@@ -18,9 +18,7 @@ class SignUrlService
         /** @var  RequestContract */
         $request = app()->make(RequestContract::class);
         $request->setUrl(PackageSignFacade::getUrl())->addQuery([
-
-            // TODO GET DIFF BETWEEN GET OR USER OVERIDED VALUE FOR CALLBACK AND WEBHOOK
-            "callback" => $model->getTrustupIoSignCallbackUrl(),
+            "callback" => $model->trustupIoSignCallback ?? $model->getTrustupIoSignCallbackUrl(),
             "modelId" => $model->getTrustupIoSignModelId(),
             "modelType" => $model->getTrustupIoSignModelType(),
             "documentUrl" => $model->getTrustupIoSignOriginalPdfUrl()

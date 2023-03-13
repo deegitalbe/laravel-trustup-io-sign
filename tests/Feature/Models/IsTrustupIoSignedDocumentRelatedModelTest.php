@@ -1,13 +1,13 @@
 <?php
 
-namespace Deegitalebe\PackageSign\Tests\Feature\Models;
+namespace Deegitalbe\TrustupIoSign\Tests\Feature\Models;
 
-use Deegitalebe\PackageSign\Tests\database\migrations\CreateUsersTable;
 use Mockery\MockInterface;
 use Henrotaym\LaravelTestSuite\TestSuite;
-use Deegitalebe\PackageSign\Tests\TestCase;
-use Deegitalebe\PackageSign\Tests\Models\User;
+use Deegitalbe\TrustupIoSign\Tests\TestCase;
+use Deegitalbe\TrustupIoSign\Tests\Models\User;
 use Illuminate\Foundation\Testing\RefreshDatabase;
+use Deegitalebe\PackageSign\Tests\database\migrations\CreateUsersTable;
 use Henrotaym\LaravelPackageVersioning\Testing\Traits\InstallPackageTest;
 
 class IsTrustupIoSignedDocumentRelatedModelTest extends TestCase

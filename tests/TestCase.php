@@ -1,10 +1,10 @@
 <?php
 
-namespace Deegitalebe\PackageSign\Tests;
+namespace Deegitalbe\TrustupIoSign\Tests;
 
 use Deegitalebe\PackageSign\PackageSign;
 use Henrotaym\LaravelApiClient\Providers\ClientServiceProvider;
-use Deegitalebe\PackageSign\Providers\PackageSignServiceProvider;
+use Deegitalbe\PackageSign\Providers\PackageSignServiceProvider;
 use Henrotaym\LaravelPackageVersioning\Testing\VersionablePackageTestCase;
 use Deegitalbe\LaravelTrustupIoExternalModelRelations\Providers\LaravelTrustupIoExternalModelRelationsServiceProvider;
 

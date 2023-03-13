@@ -37,12 +37,6 @@ trait IsTrustupIoSignedDocumentRelatedModel
         return FacadesPackageSignFacade::getConfig("app_key");
     }
 
-
-    public function getTrustupIoSignedDocumentColumn(): ?string
-    {
-        return "trustup_io_signed_document_uuid";
-    }
-
     public function getTrustupIoSignWebHookUrl(): string
     {
         return $this->signWebhookUrl;

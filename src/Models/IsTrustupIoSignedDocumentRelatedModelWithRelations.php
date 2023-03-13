@@ -2,24 +2,41 @@
 
 namespace Deegitalbe\TrustupIoSign\Models;
 
-use Illuminate\Support\Collection;
-use Deegitalbe\LaravelTrustupIoExternalModelRelations\Contracts\Models\ExternalModelContract;
+
 use Deegitalbe\LaravelTrustupIoExternalModelRelations\Traits\Models\IsExternalModelRelatedModel;
-use Deegitalbe\TrustupIoSign\Models\IsTrustupIoSignedDocumentRelatedModelWithRelations as ModelsIsTrustupIoSignedDocumentRelatedModelWithRelations;
+use Deegitalbe\LaravelTrustupIoExternalModelRelations\Contracts\Models\Relations\ExternalModelRelationContract;
 
 trait IsTrustupIoSignedDocumentRelatedModelWithRelations
 {
-    use IsExternalModelRelatedModel, ModelsIsTrustupIoSignedDocumentRelatedModelWithRelations;
-
-
-    /** @return Collection<int, ExternalModelContract> */
-    public function getTrustupIoSignDocument(): Collection
+    use IsExternalModelRelatedModel;
+    /**
+     * Defining a has many relation to signed documents external model.
+     * 
+     * @param string $columnName Column where signed documents identifiers are stored.
+     * @param string $name
+     * @return ExternalModelRelationContract
+     */
+    public function hasManyTrustupIoSignedDocuments(string $columnName, ?string $name = null): ExternalModelRelationContract
     {
-        return $this->getExternalModels('trustupIoSignDocument');
+        return $this->hasManyExternalModels(
+            app()->make(TrustupIoSignedDocumentLoadingCallback::class),
+            $columnName,
+            $name
+        );
     }
-
-    public function initializeIsTrustupIoAuditRelatedModelWithRelations()
+    /**
+     * Defining a belongs to relation to signed documents external model.
+     * 
+     * @param string $columnName Column where signed document identifier is stored.
+     * @param string $name
+     * @return ExternalModelRelationContract
+     */
+    public function belongsToTrustupIoSignedDocument(string $columnName, ?string $name = null): ExternalModelRelationContract
     {
-        $this->getExternalModelRelationSubscriber()->register($this->trustupIoSignDocument());
+        return $this->belongsToExternalModel(
+            app()->make(TrustupIoSignedDocumentLoadingCallback::class),
+            $columnName,
+            $name
+        );
     }
 }

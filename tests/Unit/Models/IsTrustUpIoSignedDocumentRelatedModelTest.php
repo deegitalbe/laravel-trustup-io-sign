@@ -1,10 +1,10 @@
 <?php
 
-namespace Deegitalebe\PackageSign\Tests\Unit\Models;
+namespace Deegitalbe\TrustupIoSign\Tests\Unit\Models;
 
 use Mockery\MockInterface;
 use Henrotaym\LaravelTestSuite\TestSuite;
-use Deegitalebe\PackageSign\Tests\TestCase;
+use Deegitalbe\TrustupIoSign\Tests\TestCase;
 use Deegitalebe\PackageSign\Tests\Models\User;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Henrotaym\LaravelPackageVersioning\Testing\Traits\InstallPackageTest;

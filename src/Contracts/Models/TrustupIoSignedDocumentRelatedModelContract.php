@@ -11,9 +11,6 @@ interface TrustupIoSignedDocumentRelatedModelContract
      */
     public function getTrustupIoSignOriginalPdfUrl(): string;
 
-    // TODO 
-    // public function getTrustupIoSignedDocumentColumn(): ?string;
-
     public function getTrustupIoSignModelType(): string;
 
     public function getTrustupIoSignModelId(): string;

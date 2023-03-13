@@ -1,7 +1,8 @@
 <?php
-namespace Deegitalebe\PackageSign\Tests\Feature;
 
-use Deegitalebe\PackageSign\Tests\TestCase;
+namespace Deegitalbe\TrustupIoSign\Tests\Feature;
+
+use Deegitalbe\TrustupIoSign\Tests\TestCase;
 
 class ExampleFeatureTest extends TestCase
 {

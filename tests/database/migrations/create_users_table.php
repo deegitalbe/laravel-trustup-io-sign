@@ -1,6 +1,6 @@
 <?php
 
-namespace Deegitalebe\PackageSign\Tests\database\migrations;
+namespace Deegitalbe\TrustupIoSign\Tests\database\migrations;
 
 
 use Illuminate\Support\Facades\Schema;
