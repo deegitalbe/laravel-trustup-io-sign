@@ -1,14 +1,17 @@
 <?php
 
-namespace Deegitalebe\PackageSign\Models;
+namespace Deegitalbe\TrustupIoSign\Models;
 
-use Deegitalebe\PackageSign\Contracts\Models\TrustupIoSignedDocumentRelatedModelContract;
 use Illuminate\Support\Str;
-use Deegitalebe\PackageSign\Facades\PackageSignFacade;
 use Deegitalebe\PackageSign\Services\SignUrlService;
+use Deegitalbe\TrustupIoSign\Facades\PackageSignFacade as FacadesPackageSignFacade;
 
 trait IsTrustupIoSignedDocumentRelatedModel
 {
+
+    protected string $trustupIoSignCallback;
+    protected string $trustupIoSignWebhook;
+
     /**
      * Getting model identifier
      */
@@ -31,7 +34,7 @@ trait IsTrustupIoSignedDocumentRelatedModel
 
     public function getTrustupIoSignAppKey(): string
     {
-        return PackageSignFacade::getConfig("app_key");
+        return FacadesPackageSignFacade::getConfig("app_key");
     }
 
 
@@ -49,14 +52,21 @@ trait IsTrustupIoSignedDocumentRelatedModel
     {
         /** @var SignUrlService */
         $signUrlService = app()->make(SignUrlService::class);
-        if ($callback) $this->callback = $callback;
-        if ($webhook) $this->webhook = $webhook;
+        if ($callback) $this->setTrustupIoSignCallback($callback);
+        if ($webhook) $this->setTrustupIoSignWebhook($webhook);
 
-        return $signUrlService->generateUrl($this->getUrlRelatedAttributes());
+        return $signUrlService->generateUrl($this);
     }
 
-    protected function getUrlRelatedAttributes(): TrustupIoSignedDocumentRelatedModelContract
+    protected function setTrustupIoSignCallback(string $callback): self
     {
-        return static::get()->first();
+        $this->trustupIoSignCallback = $callback;
+        return $this;
+    }
+
+    protected function setTrustupIoSignWebhook($webhook): self
+    {
+        $this->trustupIoSignWebhook = $webhook;
+        return $this;
     }
 }

@@ -20,12 +20,12 @@
     },
     "autoload": {
         "psr-4": {
-            "Deegitalebe\\PackageSign\\": "src"
+            "Deegitalbe\\TrustupIoSign": "src"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "Deegitalebe\\PackageSign\\Tests\\": "tests"
+            "Deegitalbe\\TrustupIoSign\\Tests\\": "tests"
         }
     },
     "extra": {

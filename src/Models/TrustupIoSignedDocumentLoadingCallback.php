@@ -1,12 +1,12 @@
 <?php
 
-namespace Deegitalbe\LaravelTrustupIoAudit\Models;
+namespace Deegitalbe\TrustupIoSign\Models;
 
 
 use Illuminate\Support\Collection;
-use Deegitalebe\PackageSign\Contracts\Api\Endpoints\SignedDocument\SignedDocumentEndpointContract;
+use Deegitalbe\TrustupIoSign\Contracts\Api\Endpoints\SignedDocument\SignedDocumentEndpointContract;
+use Deegitalbe\TrustupIoSign\Contracts\api\Requests\SignedDocument\IndexSignedDocumentRequestContract;
 use Deegitalbe\LaravelTrustupIoExternalModelRelations\Contracts\Models\Relations\ExternalModelRelationLoadingCallbackContract;
-use Deegitalebe\PackageSign\Contracts\api\Requests\SignedDocument\IndexSignedDocumentRequestContract;
 
 class TrustupIoSignedDocumentLoadingCallback implements ExternalModelRelationLoadingCallbackContract
 {

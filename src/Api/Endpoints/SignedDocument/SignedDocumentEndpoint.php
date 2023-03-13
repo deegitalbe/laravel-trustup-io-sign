@@ -1,15 +1,13 @@
 <?php
 
-namespace Deegitalebe\PackageSign\Api\Endpoints\SignedDocument;
+namespace Deegitalbe\TrustupIoSign\Api\Endpoints\SignedDocument;
 
 use Henrotaym\LaravelApiClient\Contracts\ClientContract;
-use Henrotaym\LaravelApiClient\Contracts\RequestContract;
-use Deegitalbe\LaravelTrustupIoAudit\Api\Credentials\LogCredential;
-use Deegitalbe\LaravelTrustupIoAudit\Api\Credentials\SignedDocumentCredential;
+use Deegitalbe\TrustupIoSign\Api\Credentials\SignedDocumentCredential;
 use Deegitalbe\LaravelTrustupIoAudit\Contracts\Api\Responses\Logs\IndexLogResponseContract;
-use Deegitalebe\PackageSign\Contracts\Api\Endpoints\SignedDocument\SignedDocumentEndpointContract;
-use Deegitalebe\PackageSign\Contracts\api\Requests\SignedDocument\IndexSignedDocumentRequestContract;
-use Deegitalebe\PackageSign\Contracts\Api\Responses\signedDocument\IndexSignedDocumentResponseContract;
+use Deegitalbe\TrustupIoSign\Contracts\Api\Endpoints\SignedDocument\SignedDocumentEndpointContract;
+use Deegitalbe\TrustupIoSign\Contracts\api\Requests\SignedDocument\IndexSignedDocumentRequestContract;
+use Deegitalbe\TrustupIoSign\Contracts\Api\Responses\signedDocument\IndexSignedDocumentResponseContract;
 
 class SignedDocumentEndpoint implements SignedDocumentEndpointContract
 {

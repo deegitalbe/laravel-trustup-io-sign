@@ -1,10 +1,10 @@
 <?php
 
-namespace Deegitalebe\PackageSign\Services;
+namespace Deegitalbe\TrustupIoSign\Services;
 
-use Deegitalebe\PackageSign\Contracts\Models\TrustupIoSignedDocumentRelatedModelContract;
 use Deegitalebe\PackageSign\Services\SignUrls\SignUrlServiceAdapter;
-
+use Deegitalbe\TrustupIoSign\Contracts\Models\TrustupIoSignedDocumentRelatedModelContract;
+use Deegitalbe\TrustupIoSign\Facades\PackageSignFacade;
 
 class SignUrlService
 {
@@ -17,12 +17,13 @@ class SignUrlService
     {
         /** @var  RequestContract */
         $request = app()->make(RequestContract::class);
-        $request->setUrl("https://sign.trustup.io.test/api/signatures")->addQuery([
-            "redirect" => $model->getTrustupIoSignRedirectUrl(),
+        $request->setUrl(PackageSignFacade::getUrl())->addQuery([
+
+            // TODO GET DIFF BETWEEN GET OR USER OVERIDED VALUE FOR CALLBACK AND WEBHOOK
             "callback" => $model->getTrustupIoSignCallbackUrl(),
             "modelId" => $model->getTrustupIoSignModelId(),
             "modelType" => $model->getTrustupIoSignModelType(),
-            "documentUrl" => $model->getTrustupIoSignDocumentUrl()
+            "documentUrl" => $model->getTrustupIoSignOriginalPdfUrl()
         ]);
         return $request->url();
     }

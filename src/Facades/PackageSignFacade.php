@@ -1,13 +1,13 @@
 <?php
-namespace Deegitalebe\PackageSign\Facades;
 
-use Deegitalebe\PackageSign\PackageSign;
+namespace Deegitalbe\TrustupIoSign\Facades;
+
 use Henrotaym\LaravelPackageVersioning\Facades\Abstracts\VersionablePackageFacade;
 
 class PackageSignFacade extends VersionablePackageFacade
 {
     public static function getPackageClass(): string
     {
-        return PackageSign::class;
+        return PackageSignFacade::class;
     }
 }

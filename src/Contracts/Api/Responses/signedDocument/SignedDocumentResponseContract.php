@@ -1,6 +1,6 @@
 <?php
 
-namespace Deegitalebe\PackageSign\Contracts\Api\Responses\signedDocument;
+namespace Deegitalbe\TrustupIoSign\Contracts\Api\Responses\signedDocument;
 
 use Henrotaym\LaravelApiClient\Contracts\TryResponseContract;
 

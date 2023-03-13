@@ -1,9 +1,13 @@
 <?php
 
-namespace Deegitalebe\PackageSign;
+namespace Deegitalbe\TrustupIoSign;
 
-use Deegitalebe\PackageSign\Contracts\PackageSignContract;
+use Deegitalbe\TrustupIoSign\Contracts\PackageSignContract;
 use Henrotaym\LaravelPackageVersioning\Services\Versioning\VersionablePackage;
+
+/**
+ *  @method static string getUrl() 
+ */
 
 class PackageSign extends VersionablePackage implements PackageSignContract
 {

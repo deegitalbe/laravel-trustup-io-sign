@@ -1,10 +1,10 @@
 <?php
 
-namespace Deegitalebe\PackageSign\Contracts\Api\Endpoints\SignedDocument;
+namespace Deegitalbe\TrustupIoSign\Contracts\Api\Endpoints\SignedDocument;
 
 
-use Deegitalebe\PackageSign\Contracts\api\Requests\SignedDocument\IndexSignedDocumentRequestContract;
-use Deegitalebe\PackageSign\Contracts\Api\Responses\signedDocument\IndexSignedDocumentResponseContract;
+use Deegitalbe\TrustupIoSign\Contracts\api\Requests\SignedDocument\IndexSignedDocumentRequestContract;
+use Deegitalbe\TrustupIoSign\Contracts\Api\Responses\signedDocument\IndexSignedDocumentResponseContract;
 
 interface SignedDocumentEndpointContract
 {

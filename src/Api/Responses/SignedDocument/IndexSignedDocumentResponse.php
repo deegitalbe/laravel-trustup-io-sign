@@ -1,10 +1,10 @@
 <?php
 
-namespace Deegitalebe\PackageSign\Api\Responses\Logs;
+namespace Deegitalbe\TrustupIoSign\Api\Responses\SignedDocument;
 
 use Illuminate\Support\Collection;
 use Deegitalbe\LaravelTrustupIoAudit\Contracts\Models\LogContract;
-use Deegitalebe\PackageSign\Contracts\Api\Responses\signedDocument\IndexSignedDocumentResponseContract;
+use Deegitalbe\TrustupIoSign\Contracts\Api\Responses\signedDocument\IndexSignedDocumentResponseContract;
 
 class IndexSignedDocumentResponse extends IndexSignedDocumentResponse implements IndexSignedDocumentResponseContract
 {

@@ -1,5 +1,6 @@
 <?php
-namespace Deegitalebe\PackageSign\Contracts;
+
+namespace Deegitalbe\TrustupIoSign\Contracts;
 
 use Henrotaym\LaravelPackageVersioning\Services\Versioning\Contracts\VersionablePackageContract;
 use Henrotaym\LaravelContainerAutoRegister\Services\AutoRegister\Contracts\AutoRegistrableContract;
@@ -9,5 +10,4 @@ use Henrotaym\LaravelContainerAutoRegister\Services\AutoRegister\Contracts\AutoR
  */
 interface PackageSignContract extends VersionablePackageContract, AutoRegistrableContract
 {
-    
 }

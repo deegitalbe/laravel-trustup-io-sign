@@ -1,6 +1,6 @@
 <?php
 
-namespace Deegitalbe\LaravelTrustupIoAudit\Api\Credentials;
+namespace Deegitalbe\TrustupIoSign\Api\Credentials;
 
 use Deegitalebe\PackageSign\Facades\PackageSignFacade;
 use Henrotaym\LaravelApiClient\JsonCredential;

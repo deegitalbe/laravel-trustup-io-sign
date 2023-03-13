@@ -1,17 +1,16 @@
 <?php
 
-namespace Deegitalebe\PackageSign\Providers;
+namespace Deegitalbe\TrustupIoSign\Providers;
 
-use Deegitalbe\LaravelTrustupIoAudit\Api\Responses\Logs\SignedDocumentResponse;
-use Deegitalebe\PackageSign\Api\Endpoints\SignedDocument\SignedDocumentEndpoint;
-use Deegitalebe\PackageSign\Api\Responses\Logs\IndexSignedDocumentResponse;
-use Deegitalebe\PackageSign\Contracts\Api\Endpoints\SignedDocument\SignedDocumentEndpointContract;
-use Deegitalebe\PackageSign\Contracts\api\Requests\SignedDocument\IndexSignedDocumentRequest;
-use Deegitalebe\PackageSign\Contracts\api\Requests\SignedDocument\IndexSignedDocumentRequestContract;
-use Deegitalebe\PackageSign\Contracts\Api\Responses\signedDocument\IndexSignedDocumentResponseContract;
-use Deegitalebe\PackageSign\Contracts\Api\Responses\signedDocument\SignedDocumentResponseContract;
 use Deegitalebe\PackageSign\PackageSign;
+use Deegitalbe\TrustupIoSign\Api\Endpoints\SignedDocument\SignedDocumentEndpoint;
+use Deegitalbe\TrustupIoSign\Api\Responses\SignedDocument\SignedDocumentResponse;
+use Deegitalbe\TrustupIoSign\api\Requests\SignedDocument\IndexSignedDocumentRequest;
+use Deegitalbe\TrustupIoSign\Api\Responses\SignedDocument\IndexSignedDocumentResponse;
 use Henrotaym\LaravelPackageVersioning\Providers\Abstracts\VersionablePackageServiceProvider;
+use Deegitalbe\TrustupIoSign\Contracts\Api\Endpoints\SignedDocument\SignedDocumentEndpointContract;
+use Deegitalbe\TrustupIoSign\Contracts\api\Requests\SignedDocument\IndexSignedDocumentRequestContract;
+use Deegitalbe\TrustupIoSign\Contracts\Api\Responses\signedDocument\IndexSignedDocumentResponseContract;
 
 class PackageSignServiceProvider extends VersionablePackageServiceProvider
 {

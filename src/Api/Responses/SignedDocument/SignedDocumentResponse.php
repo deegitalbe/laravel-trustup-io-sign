@@ -1,9 +1,9 @@
 <?php
 
-namespace Deegitalbe\LaravelTrustupIoAudit\Api\Responses\Logs;
+namespace Deegitalbe\TrustupIoSign\Api\Responses\SignedDocument;
 
-use Deegitalebe\PackageSign\Contracts\Api\Responses\signedDocument\SignedDocumentResponseContract;
 use Henrotaym\LaravelApiClient\Contracts\TryResponseContract;
+use Deegitalbe\TrustupIoSign\Contracts\Api\Responses\signedDocument\SignedDocumentResponseContract;
 
 class SignedDocumentResponse implements SignedDocumentResponseContract
 {

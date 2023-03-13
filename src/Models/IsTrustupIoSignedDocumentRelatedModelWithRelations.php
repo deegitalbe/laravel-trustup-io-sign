@@ -1,22 +1,16 @@
 <?php
 
-namespace Deegitalebe\PackageSign\Models;
+namespace Deegitalbe\TrustupIoSign\Models;
 
-use Deegitalbe\LaravelTrustupIoAudit\Models\TrustupIoSignedDocumentLoadingCallback;
 use Illuminate\Support\Collection;
 use Deegitalbe\LaravelTrustupIoExternalModelRelations\Contracts\Models\ExternalModelContract;
 use Deegitalbe\LaravelTrustupIoExternalModelRelations\Traits\Models\IsExternalModelRelatedModel;
-use Deegitalbe\LaravelTrustupIoExternalModelRelations\Contracts\Models\Relations\ExternalModelRelationContract;
+use Deegitalbe\TrustupIoSign\Models\IsTrustupIoSignedDocumentRelatedModelWithRelations as ModelsIsTrustupIoSignedDocumentRelatedModelWithRelations;
 
 trait IsTrustupIoSignedDocumentRelatedModelWithRelations
 {
-    use IsExternalModelRelatedModel, IsTrustupIoSignedDocumentRelatedModel;
+    use IsExternalModelRelatedModel, ModelsIsTrustupIoSignedDocumentRelatedModelWithRelations;
 
-
-    public function trustupIoSignDocument(): ExternalModelRelationContract
-    {
-        return $this->hasManyExternalModels(app()->make(TrustupIoSignedDocumentLoadingCallback::class), $this->getTrustupIoSignedDocumentColumn());
-    }
 
     /** @return Collection<int, ExternalModelContract> */
     public function getTrustupIoSignDocument(): Collection
