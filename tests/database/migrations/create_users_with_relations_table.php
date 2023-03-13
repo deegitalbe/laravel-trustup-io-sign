@@ -3,10 +3,10 @@
 namespace Deegitalbe\TrustupIoSign\Tests\database\migrations;
 
 
-use Deegitalebe\PackageSign\Services\Traits\TrustupioSignedDocumentRelatedMigrations;
-use Illuminate\Database\Migrations\Migration;
-use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Database\Migrations\Migration;
+use Deegitalbe\TrustupIoSign\Services\Traits\TrustupioSignedDocumentRelatedMigrations;
 
 class CreateUsersWithRelationsTable extends Migration
 {

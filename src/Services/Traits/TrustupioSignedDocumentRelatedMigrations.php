@@ -1,6 +1,6 @@
 <?php
 
-namespace Deegitalebe\PackageSign\Services\Traits;
+namespace Deegitalbe\TrustupIoSign\Services\Traits;
 
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;

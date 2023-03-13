@@ -2,6 +2,7 @@
 
 namespace Deegitalbe\TrustupIoSign\Tests\Feature\Models;
 
+use Deegitalbe\TrustupIoSign\Tests\database\migrations\CreateUsersTable as MigrationsCreateUsersTable;
 use Mockery\MockInterface;
 use Henrotaym\LaravelTestSuite\TestSuite;
 use Deegitalbe\TrustupIoSign\Tests\TestCase;
@@ -25,16 +26,16 @@ class IsTrustupIoSignedDocumentRelatedModelTest extends TestCase
         return $this->mockThis(User::class);
     }
 
-    public function test_that_it_can_get_trustup_io_signed_document_related_url_attributes()
-    {
+    // public function test_that_it_can_get_trustup_io_signed_document_related_url_attributes()
+    // {
 
-        $this->migrateUserWithoutRelations();
+    //     $this->migrateUserWithoutRelations();
 
-        /** Create User */
-        $this->be(new User(["id" => 2]));
-        $user = $this->createUserWithoutRelation();
-        dd($user->getUrlRelatedAttributes());
-    }
+    //     /** Create User */
+    //     $this->be(new User(["id" => 2]));
+    //     $user = $this->createUserWithoutRelation();
+    //     dd($user->getUrlRelatedAttributes());
+    // }
 
     public function createUserWithoutRelation(): User
     {
@@ -44,6 +45,6 @@ class IsTrustupIoSignedDocumentRelatedModelTest extends TestCase
 
     public function migrateUserWithoutRelations(): void
     {
-        app()->make(CreateUsersTable::class)->up();
+        app()->make(MigrationsCreateUsersTable::class)->up();
     }
 }

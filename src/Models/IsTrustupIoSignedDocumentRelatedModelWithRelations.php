@@ -8,7 +8,7 @@ use Deegitalbe\LaravelTrustupIoExternalModelRelations\Contracts\Models\Relations
 
 trait IsTrustupIoSignedDocumentRelatedModelWithRelations
 {
-    use IsExternalModelRelatedModel;
+    use IsExternalModelRelatedModel, IsTrustupIoSignedDocumentRelatedModel;
     /**
      * Defining a has many relation to signed documents external model.
      * 

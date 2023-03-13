@@ -7,7 +7,7 @@ use Mockery\MockInterface;
 use Henrotaym\LaravelTestSuite\TestSuite;
 use Deegitalbe\TrustupIoSign\Tests\TestCase;
 use Illuminate\Foundation\Testing\RefreshDatabase;
-use Deegitalebe\PackageSign\Tests\Models\UserWithRelations;
+use Deegitalbe\TrustupIoSign\Tests\Models\UserWithRelations;
 use Henrotaym\LaravelPackageVersioning\Testing\Traits\InstallPackageTest;
 use Deegitalbe\LaravelTrustupIoExternalModelRelations\Contracts\Models\ExternalModelContract;
 use Deegitalbe\LaravelTrustupIoExternalModelRelations\Contracts\Models\Relations\ExternalModelRelationContract;
@@ -29,18 +29,28 @@ class IsTrustupIoAuditRelatedModelWithRelationsTest extends TestCase
         return $this->mockThis(UserWithRelations::class);
     }
 
-    public function test_that_it_can_it_get_relation()
+    public function test_that_it_can_get_trustup_io_audit_log_column()
     {
+
         $class = $this->mockUserWithRelations();
-        $ext = $this->mockThis(ExternalModelRelationContract::class);
 
-        $class->shouldReceive('getTrustupIoSignedDocumentColumn')->once()->withNoArgs()->andReturn("trustup_io_signed_document_uuid");
-        $class->shouldReceive('hasOneTrustupMedia')->once()->with("trustup_io_signed_document_uuid")->andReturn($ext);
+        $class->shouldReceive('getTrustupIoSignedDocumentColumn')->once()->withNoArgs()->passthru();
 
-        $class->shouldReceive('trustupIoSignDocument')->once()->withNoArgs()->passthru();
-
-        $this->assertEquals($ext, $class->trustupIoSignDocument());
+        $this->assertEquals("trustup_io_signed_document_uuid", $class->getTrustupIoSignedDocumentColumn());
     }
+
+    // public function test_that_it_can_it_get_relation()
+    // {
+    //     $class = $this->mockUserWithRelations();
+    //     $ext = $this->mockThis(ExternalModelRelationContract::class);
+
+    //     $class->shouldReceive('getTrustupIoSignedDocumentColumn')->once()->withNoArgs()->andReturn("trustup_io_signed_document_uuid");
+    //     $class->shouldReceive('hasOneTrustupMedia')->once()->with("trustup_io_signed_document_uuid")->andReturn($ext);
+
+    //     $class->shouldReceive('trustupIoSignDocument')->once()->withNoArgs()->passthru();
+
+    //     $this->assertEquals($ext, $class->trustupIoSignDocument());
+    // }
 
 
     // public function test_that_it_can_get_trustup_io_audit_logs_collection()

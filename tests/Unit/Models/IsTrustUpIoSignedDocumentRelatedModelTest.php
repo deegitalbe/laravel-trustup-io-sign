@@ -5,7 +5,7 @@ namespace Deegitalbe\TrustupIoSign\Tests\Unit\Models;
 use Mockery\MockInterface;
 use Henrotaym\LaravelTestSuite\TestSuite;
 use Deegitalbe\TrustupIoSign\Tests\TestCase;
-use Deegitalebe\PackageSign\Tests\Models\User;
+use Deegitalbe\TrustupIoSign\Tests\Models\User;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Henrotaym\LaravelPackageVersioning\Testing\Traits\InstallPackageTest;
 
@@ -66,19 +66,8 @@ class IsTrustupIoSignedDocumentRelatedModelTest extends TestCase
     public function test_that_it_can_get_trustup_io_signed_document_related_document_url()
     {
         $class = $this->mockUser();
-        $class->shouldReceive("getTrustupIoSignDocumentUrl")->once()->withNoArgs()->passthru();
-        $this->assertEquals("https://eforms.com/download/2019/08/Service-Contract-Template.pdf", $class->getTrustupIoSignDocumentUrl());
-    }
-
-
-    public function test_that_it_can_get_trustup_io_audit_log_column()
-    {
-
-        $class = $this->mockUser();
-
-        $class->shouldReceive('getTrustupIoSignedDocumentColumn')->once()->withNoArgs()->passthru();
-
-        $this->assertEquals("trustup_io_signed_document_uuid", $class->getTrustupIoSignedDocumentColumn());
+        $class->shouldReceive("getTrustupIoSignOriginalPdfUrl")->once()->withNoArgs()->passthru();
+        $this->assertEquals("https://eforms.com/download/2019/08/Service-Contract-Template.pdf", $class->getTrustupIoSignOriginalPdfUrl());
     }
 
     // public function test_that_boot_is_trustup_io_audit_related_Model_boot_on_model_and_register_liostener()

@@ -6,7 +6,7 @@ namespace Deegitalbe\TrustupIoSign\Tests\database\migrations;
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
-use Deegitalebe\PackageSign\Services\Traits\TrustupioSignedDocumentRelatedMigrations;
+use Deegitalbe\TrustupIoSign\Services\Traits\TrustupioSignedDocumentRelatedMigrations;
 
 class CreateUsersTable extends Migration
 {

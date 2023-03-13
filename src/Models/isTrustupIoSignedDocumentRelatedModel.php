@@ -4,7 +4,6 @@ namespace Deegitalbe\TrustupIoSign\Models;
 
 use Illuminate\Support\Str;
 use Deegitalbe\TrustupIoSign\Services\SignUrlService;
-use Deegitalbe\TrustupIoSign\Facades\TrustupIoSign as FacadesTrustupIoSign;
 use Deegitalbe\TrustupIoSign\Facades\TrustupIoSignFacade;
 
 trait IsTrustupIoSignedDocumentRelatedModel
