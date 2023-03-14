@@ -2,9 +2,9 @@
 
 namespace Deegitalbe\TrustupIoSign\Services;
 
-use Deegitalbe\TrustupIoSign\Contracts\Models\TrustupIoSignedDocumentRelatedModelContract;
-use Deegitalbe\TrustupIoSign\Facades\TrustupIoSign;
 use Deegitalbe\TrustupIoSign\Facades\TrustupIoSignFacade;
+use Henrotaym\LaravelApiClient\Contracts\RequestContract;
+use Deegitalbe\TrustupIoSign\Contracts\Models\TrustupIoSignedDocumentRelatedModelContract;
 
 class SignUrlService
 {

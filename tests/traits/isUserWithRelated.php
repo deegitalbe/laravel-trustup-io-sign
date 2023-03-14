@@ -4,8 +4,7 @@ namespace Deegitalbe\TrustupIoSign\Tests\traits;
 
 use Deegitalbe\TrustupIoSign\Tests\Models\User;
 use Deegitalbe\TrustupIoSign\Tests\Models\UserWithRelations;
-use Deegitalbe\LaravelTrustupIoAudit\Tests\Unit\database\migrations\CreateUsersTable;
-use Deegitalbe\LaravelTrustupIoAudit\Tests\Unit\database\migrations\CreateUsersWithRelationsTable;
+use Deegitalbe\Tests\Unit\database\migrations\CreateUsersTable;
 
 
 trait isUserWithRelated

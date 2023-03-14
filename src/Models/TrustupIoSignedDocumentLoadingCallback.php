@@ -11,19 +11,20 @@ use Deegitalbe\LaravelTrustupIoExternalModelRelations\Contracts\Models\Relations
 class TrustupIoSignedDocumentLoadingCallback implements ExternalModelRelationLoadingCallbackContract
 {
     /**
-     * @var LogEndpointContract
+     * @var SignedDocumentEndpointContract
      */
     protected SignedDocumentEndpointContract $endpoint;
 
     public function __construct(SignedDocumentEndpointContract $signedDocumentEndpoint, protected IndexSignedDocumentRequestContract $indexSignedDocumentRequest)
     {
         $this->endpoint = $signedDocumentEndpoint;
+        $this->indexSignedDocumentRequest = $indexSignedDocumentRequest;
     }
 
-    /** @return Collection<int, LogContract> */
+    /** @return Collection<int, TrustupIoSignedDocumentContract> */
     public function load(Collection $identifiers): Collection
     {
         $this->indexSignedDocumentRequest->setUuids($identifiers);
-        return $this->endpoint->index($this->indexSignedDocumentRequest)->getLogs();
+        return $this->endpoint->index($this->indexSignedDocumentRequest)->getSignedDocuments();
     }
 }

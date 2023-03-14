@@ -4,10 +4,11 @@ namespace Deegitalbe\TrustupIoSign\Api\Endpoints\SignedDocument;
 
 use Henrotaym\LaravelApiClient\Contracts\ClientContract;
 use Deegitalbe\TrustupIoSign\Api\Credentials\SignedDocumentCredential;
-use Deegitalbe\LaravelTrustupIoAudit\Contracts\Api\Responses\Logs\IndexLogResponseContract;
+use Deegitalbe\TrustupIoSign\Api\Responses\SignedDocument\IndexSignedDocumentResponse;
 use Deegitalbe\TrustupIoSign\Contracts\Api\Endpoints\SignedDocument\SignedDocumentEndpointContract;
 use Deegitalbe\TrustupIoSign\Contracts\api\Requests\SignedDocument\IndexSignedDocumentRequestContract;
 use Deegitalbe\TrustupIoSign\Contracts\Api\Responses\signedDocument\IndexSignedDocumentResponseContract;
+use Deegitalbe\TrustupIoSign\Facades\TrustupIoSignFacade;
 
 class SignedDocumentEndpoint implements SignedDocumentEndpointContract
 {
@@ -22,14 +23,14 @@ class SignedDocumentEndpoint implements SignedDocumentEndpointContract
     public function index(IndexSignedDocumentRequestContract $indexSignedDocumentRequest): IndexSignedDocumentResponseContract
     {
         $requets = $this->newRequest();
-        // filter logs when previous specified identifiers.
-        $requets->setVerb("GET")->setUrl("sign");
+        // filter documents when previous specified identifiers.
+        $requets->setVerb("GET")->setUrl(TrustupIoSignFacade::getUrl());
         if ($indexSignedDocumentRequest->hasUuids()) {
             $requets->addQuery(['uuids' => $indexSignedDocumentRequest->getUuids()->all()]);
         }
         $response = $this->client->try($requets, "Cannot get signed documents");
-        /** @var IndexLogResponseContract */
-        $formated = app()->make(IndexLogResponseContract::class);
+        /** @var IndexSignedDocumentResponse */
+        $formated = app()->make(IndexSignedDocumentResponse::class);
         return $formated->setResponse($response);
     }
 

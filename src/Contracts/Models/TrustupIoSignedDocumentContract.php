@@ -17,11 +17,12 @@ interface TrustupIoSignedDocumentContract
     public function getModelId(): string;
     public function getModelType(): string;
     public function getAppKey(): string;
-    public function getDocumentUuid(): string;
+    public function getDocumentUuid(): ?string;
     public function getSignedAt(): string;
 
+
     /** @return Collection */
-    public function getDocument(): Collection;
+    public function getDocument(): ?Collection;
 
     public function setId(int $id): TrustupIoSignedDocumentContract;
 
@@ -41,11 +42,11 @@ interface TrustupIoSignedDocumentContract
 
     public function setAppKey(string $appKey): TrustupIoSignedDocumentContract;
 
-    public function setDocumentUuid(string $documentUuid): TrustupIoSignedDocumentContract;
+    public function setDocumentUuid(?string $documentUuid): TrustupIoSignedDocumentContract;
 
     public function setSignedAt(Carbon $signedAt): TrustupIoSignedDocumentContract;
 
-    public function setDocument(Collection $document): TrustupIoSignedDocumentContract;
+    public function setDocument(?Collection $document): TrustupIoSignedDocumentContract;
 
     public function fromArray(array $attributes): TrustupIoSignedDocumentContract;
 }

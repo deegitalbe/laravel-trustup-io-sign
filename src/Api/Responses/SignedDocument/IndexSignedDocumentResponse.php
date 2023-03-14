@@ -3,10 +3,10 @@
 namespace Deegitalbe\TrustupIoSign\Api\Responses\SignedDocument;
 
 use Illuminate\Support\Collection;
-use Deegitalbe\TrustupIoSign\Contracts\Api\Responses\signedDocument\IndexSignedDocumentResponseContract;
 use Deegitalbe\TrustupIoSign\Contracts\Models\TrustupIoSignedDocumentContract;
+use Deegitalbe\TrustupIoSign\Contracts\Api\Responses\signedDocument\IndexSignedDocumentResponseContract;
 
-class IndexSignedDocumentResponse extends IndexSignedDocumentResponse implements IndexSignedDocumentResponseContract
+class IndexSignedDocumentResponse extends SignedDocumentResponse implements IndexSignedDocumentResponseContract
 {
     /**
      * @return Collection<int, TrustupIoSignedDocumentContract>
@@ -17,14 +17,13 @@ class IndexSignedDocumentResponse extends IndexSignedDocumentResponse implements
     /**
      * @return Collection<int, TrustupIoSignedDocumentContract>
      */
-    public function getSignedDocument(): Collection
+    public function getSignedDocuments(): Collection
     {
         if ($this->getResponse()->failed()) return collect();
 
         $body = $this->getResponse()->response()->get(true)["data"] ?? null;
         // TODO
         if (!$body) return collect();
-
         return collect($body)->map(
             fn (array $attributes) =>
             $this->transformRawDocument($attributes)

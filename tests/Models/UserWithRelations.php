@@ -15,9 +15,7 @@ class UserWithRelations extends User implements TrustupIoSignedDocumentRelatedMo
 
     protected $table = "users_with_relations";
     protected $fillable =  ["id", "name", "email", "password", "uuid"];
-    protected $casts = [
-        "trustup_io_audit_log_uuid" => 'object'
-    ];
+
 
     public function getTrustupIoSignOriginalPdfUrl(): string
     {

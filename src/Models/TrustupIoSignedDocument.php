@@ -16,11 +16,11 @@ class TrustupIoSignedDocument implements TrustupIoSignedDocumentContract
     protected string  $modelId;
     protected string  $modelType;
     protected string  $appKey;
-    protected string  $documentUuid;
+    protected ?string  $documentUuid;
     protected string  $signedAt;
 
     /** @var Collection<int, MediaContract> */
-    protected Collection  $document;
+    protected ?Collection  $document;
 
     public function getId(): string
     {
@@ -58,18 +58,18 @@ class TrustupIoSignedDocument implements TrustupIoSignedDocumentContract
     {
         return $this->appKey;
     }
-    public function getDocumentUuid(): string
+    public function getDocumentUuid(): ?string
     {
-        return $this->documentUuid;
+        return $this->documentUuid ?? null;
     }
     public function getSignedAt(): string
     {
         return $this->signedAt;
     }
     /** @return Collection<int, MediaContract> */
-    public function getDocument(): Collection
+    public function getDocument(): ?Collection
     {
-        return $this->document;
+        return $this->document ?? null;
     }
 
     public function setId(int $id): TrustupIoSignedDocumentContract
@@ -117,9 +117,9 @@ class TrustupIoSignedDocument implements TrustupIoSignedDocumentContract
         $this->appKey = $appKey;
         return $this;
     }
-    public function setDocumentUuid(string $documentUuid): TrustupIoSignedDocumentContract
+    public function setDocumentUuid(?string $documentUuid): TrustupIoSignedDocumentContract
     {
-        $this->documentUuid = $documentUuid;
+        $this->documentUuid = $documentUuid ?? null;
         return $this;
     }
     public function setSignedAt(Carbon $signedAt): TrustupIoSignedDocumentContract
@@ -128,9 +128,9 @@ class TrustupIoSignedDocument implements TrustupIoSignedDocumentContract
         return $this;
     }
     /**  @param Collection<int, MediaContract> */
-    public function setDocument(Collection $document): TrustupIoSignedDocumentContract
+    public function setDocument(?Collection $document): TrustupIoSignedDocumentContract
     {
-        $this->document = $document;
+        $this->document = $document ?? null;
         return $this;
     }
 
@@ -140,13 +140,13 @@ class TrustupIoSignedDocument implements TrustupIoSignedDocumentContract
             ->setAppKey($attributes['appKey'])
             ->setModelId($attributes['modelId'])
             ->setModelType($attributes['modelType'])
-            ->setDocumentUuid($attributes['documentUuid'])
+            ->setDocumentUuid($attributes['documentUuid'] ?? null)
             ->setIp($attributes['ip'])
             ->setLongitude($attributes['longitude'])
             ->setLatitude($attributes['latittude'])
             ->setSignedAt($attributes['signedAt'])
             ->setTimezone($attributes['timezone'])
-            ->setDocument($attributes['document']);
+            ->setDocument($attributes['document'] ?? null);
 
         return $this;
     }

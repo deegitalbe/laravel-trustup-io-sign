@@ -3,21 +3,19 @@
 namespace Deegitalbe\TrustupIoSign\Tests\Unit\Models;
 
 
-use Mockery;
 use Mockery\MockInterface;
 use Henrotaym\LaravelTestSuite\TestSuite;
 use Deegitalbe\TrustupIoSign\Tests\TestCase;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Deegitalbe\TrustupIoSign\Tests\Models\UserWithRelations;
 use Henrotaym\LaravelPackageVersioning\Testing\Traits\InstallPackageTest;
+use Deegitalbe\TrustupIoSign\Models\TrustupIoSignedDocumentLoadingCallback;
+use Deegitalbe\TrustupIoSign\Contracts\Models\TrustupIoSignedDocumentContract;
 use Deegitalbe\LaravelTrustupIoExternalModelRelations\Contracts\Models\ExternalModelContract;
 use Deegitalbe\LaravelTrustupIoExternalModelRelations\Contracts\Models\Relations\ExternalModelRelationContract;
 use Deegitalbe\LaravelTrustupIoExternalModelRelations\Contracts\Models\Relations\ExternalModelRelationSubscriberContract;
-use Deegitalbe\TrustupIoSign\Contracts\Models\TrustupIoSignedDocumentContract;
-use Deegitalbe\TrustupIoSign\Tests\Models\User;
-use TrustupIoSignedDocument;
 
-class IsTrustupIoAuditRelatedModelWithRelationTest extends TestCase
+class IsTrustupSignRelatedModelWithRelationTest extends TestCase
 {
     use InstallPackageTest, TestSuite, RefreshDatabase;
 
@@ -94,24 +92,21 @@ class IsTrustupIoAuditRelatedModelWithRelationTest extends TestCase
     // }
 
 
+    // TOTO MATHIEU 
+    public function test_that_it_set_belongs_to_relation()
+    {
+        $external = $this->mockThis(ExternalModelRelationContract::class);
+        $class = $this->mockUserWithRelations();
+        $loadingCallback = $this->mockThis(ExternalModelRelationLoadingCallbackContract::class);
 
-    // public function test_that_it_set_belongs_to_relation()
-    // {
-
-    //     $class = $this->mockUserWithRelations();
-    //     $loadingCallback = $this->mockThis(TrustupIoSignedDocumentLoadingCallback::class);
-
-
-    //     $class->shouldReceive("belongsToExternalModel")->once()->with(
-    //         $loadingCallback,
-    //         "test",
-    //         null
-    //     )->andReturnSelf();
-    //     $class->shouldReceive('belongsToTrustupIoSignedDocument')->once()->with("test")->passthru();
-
-
-    //     $this->assertEquals("test", $class->belongsToTrustupIoSignedDocument("test"));
-    // }
+        $class->shouldReceive("belongsToExternalModel")->once()->with(
+            app()->make(TrustupIoSignedDocumentLoadingCallback::class),
+            'id',
+            null
+        )->andReturn($external);
+        $class->shouldReceive('belongsToTrustupIoSignedDocument')->once()->with("id")->passthru();
+        $class->belongsToTrustupIoSignedDocument("id");
+    }
 
 
     // public function test_that_it_set_belongs_to_relation()

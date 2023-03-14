@@ -40,6 +40,5 @@ class CreateUsersTable extends Migration
     public function down()
     {
         Schema::dropIfExists('users');
-        // $this->removeAuditLogColumn('users', 'trustup_io_audit_log_uuid');
     }
 }
