@@ -8,7 +8,7 @@ use Deegitalbe\LaravelTrustupIoExternalModelRelations\Contracts\Models\Relations
 
 interface DefaultTrustupIoSignedDocumentRelatedModelContract extends TrustupIoSignedDocumentRelatedModelWithRelationsContract
 {
-    public function trustupIoSignedDocument(): ExternalModelRelationContract;
+    public function trustupIoSignedDocuments(): ExternalModelRelationContract;
 
     /** @return ?TrustupIoSignedDocumentContract */
     public function getTrustupIoSignedDocument(): ?TrustupIoSignedDocumentContract;
@@ -18,11 +18,5 @@ interface DefaultTrustupIoSignedDocumentRelatedModelContract extends TrustupIoSi
      */
     public function getTrustupIoSignedDocumentColumn(): string;
 
-    /**
-     * Setting related signed document.
-     * 
-     * @param ?TrustupIoSignedDocumentContract $document
-     * @return static
-     */
-    public function setTrustupIoSignedDocument(?TrustupIoSignedDocumentContract $document): TrustupIoSignedDocumentRelatedModelWithRelationsContract;
+    public function getTrustupIoSignModelTypeIdentifier(): string;
 }

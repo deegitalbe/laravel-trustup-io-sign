@@ -39,7 +39,7 @@ trait IsTrustupIoSignedDocumentRelatedModel
 
     public function getTrustupIoSignWebHookUrl(): string
     {
-        return $this->signWebhookUrl;
+        return route("webhooks.trustup-io-sign.signed-document.stored");
     }
 
     public function getTrustupIoSignUrl(?string $callback = null, ?string $webhook = null): string

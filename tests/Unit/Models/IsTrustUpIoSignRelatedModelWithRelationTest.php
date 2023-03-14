@@ -95,12 +95,12 @@ class IsTrustupSignRelatedModelWithRelationTest extends TestCase
     // TOTO MATHIEU 
     public function test_that_it_set_belongs_to_relation()
     {
+        $loadingCallback = $this->mockThis(TrustupIoSignedDocumentLoadingCallback::class);
         $external = $this->mockThis(ExternalModelRelationContract::class);
         $class = $this->mockUserWithRelations();
-        $loadingCallback = $this->mockThis(ExternalModelRelationLoadingCallbackContract::class);
 
         $class->shouldReceive("belongsToExternalModel")->once()->with(
-            app()->make(TrustupIoSignedDocumentLoadingCallback::class),
+            $loadingCallback,
             'id',
             null
         )->andReturn($external);
@@ -125,48 +125,5 @@ class IsTrustupSignRelatedModelWithRelationTest extends TestCase
 
 
     //     $this->assertEquals("test", $class->belongsToTrustupIoSignedDocument("test"));
-    // }
-
-    // public function test_that_it_can_it_get_relation()
-    // {
-    //     $class = $this->mockUserWithRelations();
-    //     $ext = $this->mockThis(ExternalModelRelationContract::class);
-
-    //     $class->shouldReceive('getTrustupIoSignedDocumentColumn')->once()->withNoArgs()->andReturn("trustup_io_signed_document_uuid");
-    //     $class->shouldReceive('hasOneTrustupMedia')->once()->with("trustup_io_signed_document_uuid")->andReturn($ext);
-
-    //     $class->shouldReceive('trustupIoSignDocument')->once()->withNoArgs()->passthru();
-
-    //     $this->assertEquals($ext, $class->trustupIoSignDocument());
-    // }
-
-
-    // public function test_that_it_can_get_trustup_io_audit_logs_collection()
-    // {
-    //     $class = $this->mockUserWithRelations();
-    //     $ext = $this->mockThis(ExternalModelContract::class);
-
-    //     $class->shouldReceive('getExternalModels')->once()->with("trustupIoAuditLogs")->andReturn(collect($ext));
-    //     $class->shouldReceive('getTrustupIoAuditLogs')->once()->withNoArgs()->passthru();
-
-    //     $this->assertEquals(collect($ext), $class->getTrustupIoAuditLogs());
-    // }
-
-
-
-    // public function test_that_it_can_initialize_trustup_io_audit_related_model_with_relations()
-    // {
-    //     $class = $this->mockUserWithRelations();
-    //     $extSubscriber = $this->mockThis(ExternalModelRelationSubscriberContract::class);
-    //     $ext = $this->mockThis(ExternalModelRelationContract::class);
-
-
-    //     $class->shouldReceive('getExternalModelRelationSubscriber')->once()->withNoArgs()->andReturn($extSubscriber);
-    //     $class->shouldReceive('trustupIoAuditLogs')->once()->withNoArgs()->andReturn($ext);
-    //     $class->shouldReceive('initializeIsTrustupIoAuditRelatedModelWithRelations')->once()->withNoArgs()->passthru();
-
-    //     $extSubscriber->shouldReceive("register")->once()->with($ext)->andReturnSelf();
-
-    //     $this->assertEquals(null, $class->initializeIsTrustupIoAuditRelatedModelWithRelations());
     // }
 }

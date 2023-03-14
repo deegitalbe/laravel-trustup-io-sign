@@ -13,7 +13,7 @@ trait DefaultTrustupIoSignedDocumentRelatedModel
 {
     use IsExternalModelRelated, ModelsIsTrustupIoSignedDocumentRelatedModelWithRelations, IsTrustupIoSignedDocumentRelatedModel;
 
-    public function trustupIoSignedDocument(): ExternalModelRelationContract
+    public function trustupIoSignedDocuments(): ExternalModelRelationContract
     {
         return $this->belongsToTrustupIoSignedDocument($this->getTrustupIoSignedDocumentColumn());
     }
@@ -21,7 +21,7 @@ trait DefaultTrustupIoSignedDocumentRelatedModel
     /** @return ?TrustupIoSignedDocumentContract */
     public function getTrustupIoSignedDocument(): ?TrustupIoSignedDocumentContract
     {
-        return $this->getExternalModels('trustupIoSignedDocument');
+        return $this->getExternalModels('trustupIoSignedDocuments');
     }
 
     /**
@@ -32,15 +32,8 @@ trait DefaultTrustupIoSignedDocumentRelatedModel
         return "trustup_io_signed_document_uuid";
     }
 
-    /**
-     * Setting related signed document.
-     * 
-     * @param ?TrustupIoSignedDocumentContract $document
-     * @return static
-     */
-    public function setTrustupIoSignedDocument(?TrustupIoSignedDocumentContract $document): TrustupIoSignedDocumentRelatedModelWithRelationsContract
+    public function getTrustupIoSignModelTypeIdentifier(): string
     {
-        $this->trustupIoSignedDocument()->setRelatedModels($document);
-        return $this;
+        return "uuid";
     }
 }

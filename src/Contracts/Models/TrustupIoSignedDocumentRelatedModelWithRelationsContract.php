@@ -30,11 +30,5 @@ interface TrustupIoSignedDocumentRelatedModelWithRelationsContract extends Exter
      */
     public function getTrustupIoSignedDocumentColumn(): string;
 
-    /**
-     * Setting related signed document.
-     * 
-     * @param ?TrustupIoSignedDocumentContract $document
-     * @return static
-     */
-    public function setTrustupIoSignedDocument(?TrustupIoSignedDocumentContract $document): TrustupIoSignedDocumentRelatedModelWithRelationsContract;
+    public function getTrustupIoSignModelTypeIdentifier(): string;
 }
