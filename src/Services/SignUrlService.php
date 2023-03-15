@@ -15,10 +15,12 @@ class SignUrlService
         $request = app()->make(RequestContract::class);
         $request->setUrl(TrustupIoSignFacade::getUrl())->addQuery([
             "callback" => $model->trustupIoSignCallback ?? $model->getTrustupIoSignCallbackUrl(),
+            "webhook" => $model->trustupIoSignCallback ?? $model->getTrustupIoSignWebhookUrl(),
             "modelId" => $model->getTrustupIoSignModelId(),
             "modelType" => $model->getTrustupIoSignModelType(),
             "documentUrl" => $model->getTrustupIoSignOriginalPdfUrl()
         ]);
+        dump($request->url());
         return $request->url();
     }
 }

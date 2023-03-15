@@ -5,7 +5,8 @@ namespace Deegitalbe\TrustupIoSign\routes;
 use Illuminate\Support\Facades\Route;
 use Deegitalbe\TrustupIoSign\Http\Controllers\Webhooks\SignedDocuments\SignedDocumentStoredController;
 
-Route::post(
-    "webhooks/trustup-io-sign/signed-documents",
-    SignedDocumentStoredController::class
-)->name("webhooks.trustup-io-sign.signed-documents.stored");
+Route::prefix('signed-document')
+    ->name('signed-document.')
+    ->group(function () {
+        Route::post("stored", SignedDocumentStoredController::class)->name('stored');
+    });

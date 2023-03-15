@@ -18,10 +18,11 @@ class TrustupIoSign extends VersionablePackage implements TrustupIoSignContract
 
     public function getUrl(): string
     {
-        if ($environmentUrl = env("TRUSTUP_IO_SIGN_URL")) return $environmentUrl;
-        if (app()->environment("staging")) return "https://staging.sign.trustup.io";
-        if (app()->environment("production")) return "https://sign.trustup.io";
+        // if ($environmentUrl = env("TRUSTUP_IO_SIGN_URL")) return $environmentUrl;
+        // if (app()->environment("staging")) return "https://staging.sign.trustup.io";
+        // if (app()->environment("production")) return "https://sign.trustup.io";
 
-        return "trustup-io-sign";
+        // return "trustup-io-sign";
+        return "https://sign.trustup.io.test";
     }
 }

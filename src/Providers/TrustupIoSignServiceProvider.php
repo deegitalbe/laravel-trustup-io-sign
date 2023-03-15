@@ -2,6 +2,7 @@
 
 namespace Deegitalbe\TrustupIoSign\Providers;
 
+use Illuminate\Support\Facades\Route;
 use Deegitalbe\TrustupIoSign\TrustupIoSign;
 use Deegitalbe\TrustupIoSign\Services\SignedDocumentStoredService;
 use Deegitalbe\TrustupIoSign\Api\Endpoints\SignedDocument\SignedDocumentEndpoint;
@@ -34,6 +35,19 @@ class TrustupIoSignServiceProvider extends VersionablePackageServiceProvider
 
     protected function addToBoot(): void
     {
-        //
+        $this->loadWebhooksRoutes();
+    }
+
+
+    protected function loadWebhooksRoutes(): self
+    {
+        Route::prefix('webhooks/trustup-io-sign')
+            ->middleware(AuthorizedServer::class)
+            ->name('webhooks.trustup-io-sign.')
+            ->group(function () {
+                $this->loadRoutesFrom(__DIR__ . "/../routes/webhooks.php");
+            });
+
+        return $this;
     }
 }
