@@ -5,6 +5,7 @@ namespace Deegitalbe\TrustupIoSign\Providers;
 use Illuminate\Support\Facades\Route;
 use Deegitalbe\TrustupIoSign\TrustupIoSign;
 use Deegitalbe\TrustupIoSign\Services\SignedDocumentStoredService;
+use Deegitalbe\ServerAuthorization\Http\Middleware\AuthorizedServer;
 use Deegitalbe\TrustupIoSign\Api\Endpoints\SignedDocument\SignedDocumentEndpoint;
 use Deegitalbe\TrustupIoSign\Api\Responses\SignedDocument\SignedDocumentResponse;
 use Deegitalbe\TrustupIoSign\Api\Requests\SignedDocument\IndexSignedDocumentRequest;

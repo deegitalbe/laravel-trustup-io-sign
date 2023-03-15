@@ -16,11 +16,11 @@ class SignUrlService
         $request->setUrl(TrustupIoSignFacade::getUrl())->addQuery([
             "callback" => $model->trustupIoSignCallback ?? $model->getTrustupIoSignCallbackUrl(),
             "webhook" => $model->trustupIoSignCallback ?? $model->getTrustupIoSignWebhookUrl(),
+            "appKey" => $model->getTrustupIoSignAppKey(),
             "modelId" => $model->getTrustupIoSignModelId(),
             "modelType" => $model->getTrustupIoSignModelType(),
             "documentUrl" => $model->getTrustupIoSignOriginalPdfUrl()
         ]);
-        dump($request->url());
         return $request->url();
     }
 }

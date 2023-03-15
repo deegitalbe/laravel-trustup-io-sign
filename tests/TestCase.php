@@ -2,11 +2,12 @@
 
 namespace Deegitalbe\TrustupIoSign\Tests;
 
-use Henrotaym\LaravelApiClient\Providers\ClientServiceProvider;
-use Henrotaym\LaravelPackageVersioning\Testing\VersionablePackageTestCase;
-use Deegitalbe\LaravelTrustupIoExternalModelRelations\Providers\LaravelTrustupIoExternalModelRelationsServiceProvider;
-use Deegitalbe\TrustupIoSign\Providers\TrustupIoSignServiceProvider;
 use Deegitalbe\TrustupIoSign\TrustupIoSign;
+use Henrotaym\LaravelApiClient\Providers\ClientServiceProvider;
+use Deegitalbe\TrustupIoSign\Providers\TrustupIoSignServiceProvider;
+use Henrotaym\LaravelPackageVersioning\Testing\VersionablePackageTestCase;
+use Deegitalbe\ServerAuthorization\Providers\ServerAuthorizationServiceProvider;
+use Deegitalbe\LaravelTrustupIoExternalModelRelations\Providers\LaravelTrustupIoExternalModelRelationsServiceProvider;
 
 class TestCase extends VersionablePackageTestCase
 {
@@ -26,6 +27,7 @@ class TestCase extends VersionablePackageTestCase
             TrustupIoSignServiceProvider::class,
             LaravelTrustupIoExternalModelRelationsServiceProvider::class,
             ClientServiceProvider::class,
+            // ServerAuthorizationServiceProvider::class,
         ];
     }
 
@@ -54,6 +56,7 @@ class TestCase extends VersionablePackageTestCase
         //     'database' => ':memory:',
         //     'prefix'   => '',
         // ]);
+        include_once __DIR__ . '/database/migrations/create_invoices_table.php';
         include_once __DIR__ . '/database/migrations/create_users_table.php';
         include_once __DIR__ . '/database/migrations/create_users_with_relations_table.php';
     }

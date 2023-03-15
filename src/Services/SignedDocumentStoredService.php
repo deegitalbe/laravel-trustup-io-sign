@@ -11,7 +11,6 @@ class SignedDocumentStoredService implements SignedDocumentStoredServiceContract
 {
     public function setModelRelatedSignedDocuments(array $attributes): void
     {
-        dd($attributes);
         Log::alert("MODEL ATTRIBUTES", ["attributes" =>  $attributes]);
         $model = $this->getModel($attributes);
         $model->trustupIoSignedDocuments()->setRelatedModelsByIds($attributes["uuid"]);
