@@ -5,14 +5,14 @@ namespace Deegitalbe\TrustupIoSign\Models;
 
 use Deegitalbe\TrustupIoSign\Contracts\Models\TrustupIoSignedDocumentContract;
 use Deegitalbe\LaravelTrustupIoExternalModelRelations\Traits\IsExternalModelRelated;
+use Deegitalbe\TrustupIoSign\Contracts\Models\TrustupIoSignedDocumentRelatedModelWithRelations;
 use Deegitalbe\LaravelTrustupIoExternalModelRelations\Contracts\Models\Relations\ExternalModelRelationContract;
-use Deegitalbe\TrustupIoSign\Models\IsTrustupIoSignedDocumentRelatedModelWithRelations as ModelsIsTrustupIoSignedDocumentRelatedModelWithRelations;
 
-trait DefaultTrustupIoSignedDocumentRelatedModel
+trait BelongsToTrustupIoSignedDocumentRelatedModel
 {
-    use IsExternalModelRelated, ModelsIsTrustupIoSignedDocumentRelatedModelWithRelations, IsTrustupIoSignedDocumentRelatedModel;
+    use IsExternalModelRelated, TrustupIoSignedDocumentRelatedModelWithRelations, IsTrustupIoSignedDocumentRelatedModel;
 
-    public function trustupIoSignedDocuments(): ExternalModelRelationContract
+    public function trustupIoSignedDocument(): ExternalModelRelationContract
     {
         return $this->belongsToTrustupIoSignedDocument($this->getTrustupIoSignedDocumentColumn());
     }
@@ -20,7 +20,7 @@ trait DefaultTrustupIoSignedDocumentRelatedModel
     /** @return ?TrustupIoSignedDocumentContract */
     public function getTrustupIoSignedDocument(): ?TrustupIoSignedDocumentContract
     {
-        return $this->getExternalModels('trustupIoSignedDocuments');
+        return $this->getExternalModels('trustupIoSignedDocument');
     }
 
     /**

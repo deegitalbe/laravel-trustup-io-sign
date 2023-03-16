@@ -1,14 +1,11 @@
 <?php
 
-namespace Deegitalbe\TrustupIoSign\Models;
+namespace Deegitalbe\TrustupIoSign\Contracts\Models;
 
-
-use Deegitalbe\LaravelTrustupIoExternalModelRelations\Traits\Models\IsExternalModelRelatedModel;
 use Deegitalbe\LaravelTrustupIoExternalModelRelations\Contracts\Models\Relations\ExternalModelRelationContract;
 
-trait IsTrustupIoSignedDocumentRelatedModelWithRelations
+trait TrustupIoSignedDocumentRelatedModelWithRelations
 {
-    use IsExternalModelRelatedModel, IsTrustupIoSignedDocumentRelatedModel;
     /**
      * Defining a has many relation to signed documents external model.
      * 
@@ -24,6 +21,7 @@ trait IsTrustupIoSignedDocumentRelatedModelWithRelations
             $name
         );
     }
+
     /**
      * Defining a belongs to relation to signed documents external model.
      * 

@@ -2,16 +2,15 @@
 
 namespace Deegitalbe\TrustupIoSign\Tests\Models;
 
-use Illuminate\Foundation\Auth\User;
 use Illuminate\Database\Eloquent\SoftDeletes;
-use Deegitalbe\TrustupIoSign\Contracts\Models\TrustupIoSignedDocumentRelatedModelWithRelationsContract;
-use Deegitalbe\LaravelTrustupIoExternalModelRelations\Contracts\Models\Relations\ExternalModelRelationContract;
-use Deegitalbe\TrustupIoSign\Contracts\Models\DefaultTrustupIoSignedDocumentRelatedModelContract;
-use Deegitalbe\TrustupIoSign\Models\DefaultTrustupIoSignedDocumentRelatedModel;
+use Deegitalbe\TrustupIoSign\Contracts\Models\BelongsToTrustupIoSignedDocumentRelatedModelContract;
+use Deegitalbe\TrustupIoSign\Models\BelongsToTrustupIoSignedDocumentRelatedModel;
+use Deegitalbe\TrustupIoSign\Models\IsTrustupIoSignedDocumentRelatedModel;
+use Illuminate\Database\Eloquent\Model;
 
-class Invoice extends User implements DefaultTrustupIoSignedDocumentRelatedModelContract
+class Invoice extends Model implements BelongsToTrustupIoSignedDocumentRelatedModelContract
 {
-    use  DefaultTrustupIoSignedDocumentRelatedModel, SoftDeletes;
+    use  BelongsToTrustupIoSignedDocumentRelatedModel, IsTrustupIoSignedDocumentRelatedModel, SoftDeletes;
 
     protected $table = "invoices";
     protected $fillable =  ["id", "uuid", "trustup_io_signed_document_uuid"];
@@ -25,15 +24,5 @@ class Invoice extends User implements DefaultTrustupIoSignedDocumentRelatedModel
     public function getTrustupIoSignCallbackUrl(): string
     {
         return "https://www.google.com/";
-    }
-
-    public function getTrustupIoSignedDocumentColumn(): string
-    {
-        return "trustup_io_signed_document_uuid";
-    }
-
-    public function document(): ExternalModelRelationContract
-    {
-        return $this->belongsToTrustupIoSignedDocument($this->getTrustupIoSignedDocumentColumn());
     }
 }

@@ -5,10 +5,11 @@ namespace Deegitalbe\TrustupIoSign\Models;
 use Illuminate\Support\Str;
 use Deegitalbe\TrustupIoSign\Services\SignUrlService;
 use Deegitalbe\TrustupIoSign\Facades\TrustupIoSignFacade;
+use Deegitalbe\LaravelTrustupIoExternalModelRelations\Traits\Models\IsExternalModelRelatedModel;
 
 trait IsTrustupIoSignedDocumentRelatedModel
 {
-
+    use IsExternalModelRelatedModel;
     protected string $trustupIoSignCallback;
     protected string $trustupIoSignWebhook;
 
