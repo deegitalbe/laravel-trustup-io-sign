@@ -9,5 +9,5 @@ use Deegitalbe\TrustupIoSign\Contracts\Models\TrustupIoSignedDocumentRelatedMode
 // Full custom trait need to define every fields.
 trait HasManyTrustupIoSignedDocumentRelatedModel
 {
-    use TrustupIoSignedDocumentRelatedModelWithRelations, IsTrustupIoSignedDocumentRelatedModel;
+    use TrustupIoSignedDocumentRelatedModelWithRelations;
 }

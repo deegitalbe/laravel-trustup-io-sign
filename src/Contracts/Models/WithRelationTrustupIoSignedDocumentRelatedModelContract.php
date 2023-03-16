@@ -7,7 +7,7 @@ use Illuminate\Support\Collection;
 use Deegitalbe\TrustupIoSign\Contracts\Models\TrustupIoSignedDocumentContract;
 use Deegitalbe\LaravelTrustupIoExternalModelRelations\Contracts\Models\Relations\ExternalModelRelationContract;
 
-interface WithRelationTrustupIoSignedDocumentRelatedModel extends TrustupIoSignedDocumentRelatedModelWithRelationsContract
+interface WithRelationTrustupIoSignedDocumentRelatedModelContract extends TrustupIoSignedDocumentRelatedModelWithRelationsContract
 {
     public function trustupIoSignedDocuments(): ExternalModelRelationContract;
 
