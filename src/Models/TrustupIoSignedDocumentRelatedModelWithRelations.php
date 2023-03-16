@@ -2,6 +2,7 @@
 
 namespace Deegitalbe\TrustupIoSign\Models;
 
+use Deegitalbe\TrustupIoSign\Models\TrustupIoSignedDocumentLoadingCallback;
 use Deegitalbe\LaravelTrustupIoExternalModelRelations\Contracts\Models\Relations\ExternalModelRelationContract;
 
 trait TrustupIoSignedDocumentRelatedModelWithRelations

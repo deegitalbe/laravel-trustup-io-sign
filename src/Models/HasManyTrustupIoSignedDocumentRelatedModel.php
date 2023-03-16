@@ -3,6 +3,7 @@
 namespace Deegitalbe\TrustupIoSign\Models;
 
 
+use Illuminate\Support\Collection;
 use Deegitalbe\TrustupIoSign\Models\IsTrustupIoSignedDocumentRelatedModel;
 use Deegitalbe\TrustupIoSign\Contracts\Models\TrustupIoSignedDocumentContract;
 use Deegitalbe\TrustupIoSign\Models\TrustupIoSignedDocumentRelatedModelWithRelations;
@@ -18,8 +19,8 @@ trait HasManyTrustupIoSignedDocumentRelatedModel
         return $this->hasManyTrustupIoSignedDocuments($this->getTrustupIoSignedDocumentsColumn());
     }
 
-    /** @return ?TrustupIoSignedDocumentContract */
-    public function getTrustupIoSignedDocuments(): ?TrustupIoSignedDocumentContract
+    /** @return Collection<int, TrustupIoSignedDocumentContract> */
+    public function getTrustupIoSignedDocuments(): Collection
     {
         return $this->getExternalModels('trustupIoSignedDocuments');
     }

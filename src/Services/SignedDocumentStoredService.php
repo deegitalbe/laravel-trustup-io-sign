@@ -36,11 +36,11 @@ class SignedDocumentStoredService implements SignedDocumentStoredServiceContract
     {
         foreach (TrustupIoSignFacade::getConfig("models") as $modelClass) :
 
-            if ($modelClass::getModel()->getTrustupIoSignModelType() !== $attributes["model_type"]) continue;
+            if ($modelClass::getModel()->getTrustupIoSignModelType() !== $attributes["modelType"]) continue;
 
             return $modelClass::where(
                 $modelClass::getModel()->getTrustupIoSignModelTypeIdentifier(),
-                $attributes["model_id"]
+                $attributes["modelId"]
             )->firstOrFail();
         endforeach;
     }
