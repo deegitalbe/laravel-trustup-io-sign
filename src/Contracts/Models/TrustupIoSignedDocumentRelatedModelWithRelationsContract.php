@@ -24,10 +24,9 @@ interface TrustupIoSignedDocumentRelatedModelWithRelationsContract extends Exter
      * @return ExternalModelRelationContract
      */
     public function belongsToTrustupIoSignedDocument(string $columnName, ?string $name = null): ExternalModelRelationContract;
+
     /*
      * Trait should define a defalut value for this column.
      */
-    public function getTrustupIoSignedDocumentColumn(): string;
-
     public function getTrustupIoSignModelTypeIdentifier(): string;
 }
