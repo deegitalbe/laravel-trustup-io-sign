@@ -10,7 +10,7 @@ trait TrustupioSignedDocumentRelatedMigrations
     public function addSignedDocumentColumn(string $model, string  $column = 'trustup_io_signed_document_uuid'): void
     {
         Schema::table($model, function (Blueprint $table) use ($column) {
-            $table->json($column)->nullable();
+            $table->string($column)->nullable();
         });
     }
 

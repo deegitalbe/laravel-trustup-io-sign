@@ -11,20 +11,28 @@ class SignedDocumentStoredService implements SignedDocumentStoredServiceContract
 {
     public function setModelRelatedSignedDocuments(array $attributes): void
     {
-        Log::alert("MODEL ATTRIBUTES", ["attributes" =>  $attributes]);
+        if (!$attributes) {
+            Log::alert("SignedDocument Service", ["error" =>  "Something went wrong could not get attrobutes from webhook."]);
+        }
+
         $model = $this->getModel($attributes);
-        $model->trustupIoSignedDocuments()->setRelatedModelsByIds($attributes["uuid"]);
+
+        if (!$model) {
+            Log::alert("SignedDocument Service", ["error" =>  "Could not find corresponding model."]);
+        }
+
+        $model->trustupIoSignedDocuments()->addToRelatedModelsByIds($attributes["uuid"]);
     }
 
     protected function getModel(array $attributes): DefaultTrustupIoSignedDocumentRelatedModelContract
     {
-        // TODO VERIFY IF I GET AN ARRAY FROM CONFIG
         foreach (TrustupIoSignFacade::getConfig("models") as $modelClass) :
 
-            if ($modelClass::getModel()->getTrustupIoSignModelType() !== $attributes["modelType"]) continue;
+            if ($modelClass::getModel()->getTrustupIoSignModelType() !== $attributes["model_type"]) continue;
+
             return $modelClass::where(
                 $modelClass::getModel()->getTrustupIoSignModelTypeIdentifier(),
-                $attributes["modelId"]
+                $attributes["model_id"]
             )->firstOrFail();
         endforeach;
     }

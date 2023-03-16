@@ -39,6 +39,7 @@ trait IsTrustupIoSignedDocumentRelatedModel
 
     public function getTrustupIoSignWebHookUrl(): string
     {
+        // use this adress for locale container 'trustup-io-ticketing/webhooks/trustup-io-sign/signed-document/stored'.
         return route("webhooks.trustup-io-sign.signed-document.stored");
     }
 
