@@ -5,6 +5,7 @@ namespace Deegitalbe\TrustupIoSign\Contracts\Models;
 
 use Illuminate\Support\Collection;
 use Deegitalbe\TrustupIoSign\Contracts\Models\TrustupIoSignedDocumentContract;
+use Deegitalbe\TrustupIoSign\Contracts\Models\TrustupIoSignedDocumentRelatedModelWithRelationsContract;
 use Deegitalbe\LaravelTrustupIoExternalModelRelations\Contracts\Models\Relations\ExternalModelRelationContract;
 
 interface WithRelationTrustupIoSignedDocumentRelatedModelContract extends TrustupIoSignedDocumentRelatedModelWithRelationsContract

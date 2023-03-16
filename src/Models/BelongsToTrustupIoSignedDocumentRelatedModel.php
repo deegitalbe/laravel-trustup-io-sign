@@ -3,14 +3,14 @@
 namespace Deegitalbe\TrustupIoSign\Models;
 
 
+use Deegitalbe\TrustupIoSign\Models\IsTrustupIoSignedDocumentRelatedModel;
 use Deegitalbe\TrustupIoSign\Contracts\Models\TrustupIoSignedDocumentContract;
-use Deegitalbe\LaravelTrustupIoExternalModelRelations\Traits\IsExternalModelRelated;
 use Deegitalbe\TrustupIoSign\Contracts\Models\TrustupIoSignedDocumentRelatedModelWithRelations;
 use Deegitalbe\LaravelTrustupIoExternalModelRelations\Contracts\Models\Relations\ExternalModelRelationContract;
 
 trait BelongsToTrustupIoSignedDocumentRelatedModel
 {
-    use IsExternalModelRelated, TrustupIoSignedDocumentRelatedModelWithRelations, IsTrustupIoSignedDocumentRelatedModel;
+    use  TrustupIoSignedDocumentRelatedModelWithRelations, IsTrustupIoSignedDocumentRelatedModel;
 
     public function trustupIoSignedDocument(): ExternalModelRelationContract
     {
