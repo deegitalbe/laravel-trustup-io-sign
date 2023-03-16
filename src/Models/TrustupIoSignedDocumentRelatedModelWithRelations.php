@@ -37,9 +37,4 @@ trait TrustupIoSignedDocumentRelatedModelWithRelations
             $name
         );
     }
-
-    public function getTrustupIoSignedDocumentColumn(): string
-    {
-        return "trustup_io_signed_document_uuid";
-    }
 }
