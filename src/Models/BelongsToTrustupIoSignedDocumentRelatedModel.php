@@ -5,7 +5,7 @@ namespace Deegitalbe\TrustupIoSign\Models;
 
 use Deegitalbe\TrustupIoSign\Models\IsTrustupIoSignedDocumentRelatedModel;
 use Deegitalbe\TrustupIoSign\Contracts\Models\TrustupIoSignedDocumentContract;
-use Deegitalbe\TrustupIoSign\Contracts\Models\TrustupIoSignedDocumentRelatedModelWithRelations;
+use Deegitalbe\TrustupIoSign\Models\TrustupIoSignedDocumentRelatedModelWithRelations;
 use Deegitalbe\LaravelTrustupIoExternalModelRelations\Contracts\Models\Relations\ExternalModelRelationContract;
 
 trait BelongsToTrustupIoSignedDocumentRelatedModel

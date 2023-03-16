@@ -1,6 +1,6 @@
 <?php
 
-namespace Deegitalbe\TrustupIoSign\Contracts\Models;
+namespace Deegitalbe\TrustupIoSign\Models;
 
 use Deegitalbe\LaravelTrustupIoExternalModelRelations\Contracts\Models\Relations\ExternalModelRelationContract;
 

@@ -5,7 +5,7 @@ namespace Deegitalbe\TrustupIoSign\Services\Traits;
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 
-trait TrustupioSignedDocumentRelatedMigrations
+trait BelongsToTrustupioSignedDocumentRelatedMigrations
 {
     public function addSignedDocumentColumn(string $model, string  $column = 'trustup_io_signed_document_uuid'): void
     {
