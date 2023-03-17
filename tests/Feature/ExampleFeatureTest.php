@@ -14,6 +14,6 @@ class ExampleFeatureTest extends TestCase
 
     public function test_if_get_config_return_an_array()
     {
-        dd(TrustupIoSignFacade::getConfig("models"));
+        // dd(TrustupIoSignFacade::getConfig("models"));
     }
 }

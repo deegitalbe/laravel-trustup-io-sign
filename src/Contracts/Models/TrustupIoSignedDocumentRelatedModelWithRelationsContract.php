@@ -30,4 +30,6 @@ interface TrustupIoSignedDocumentRelatedModelWithRelationsContract extends Exter
      * Trait should define a defalut value for this column.
      */
     public function getTrustupIoSignModelTypeIdentifier(): string;
+
+    public function getTrustupIoSignUrl(?string $callback = null, ?string $webhook = null): string;
 }

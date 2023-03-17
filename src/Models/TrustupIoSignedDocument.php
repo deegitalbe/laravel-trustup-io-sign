@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Carbon;
 use Illuminate\Support\Collection;
+use Deegitalbe\TrustupIoSign\Contracts\Models\MediaContract;
 use Deegitalbe\TrustupIoSign\Contracts\Models\TrustupIoSignedDocumentContract;
 
 class TrustupIoSignedDocument implements TrustupIoSignedDocumentContract
@@ -66,8 +67,8 @@ class TrustupIoSignedDocument implements TrustupIoSignedDocumentContract
     {
         return $this->signedAt;
     }
-    /** @return Collection<int, MediaContract> */
-    public function getDocument(): ?Collection
+    /** @return MediaContract  */
+    public function getDocument(): ?MediaContract
     {
         return $this->document ?? null;
     }
@@ -127,8 +128,8 @@ class TrustupIoSignedDocument implements TrustupIoSignedDocumentContract
         $this->signedAt = $signedAt;
         return $this;
     }
-    /**  @param Collection<int, MediaContract> */
-    public function setDocument(?Collection $document): TrustupIoSignedDocumentContract
+    /**  @param MediaContract> */
+    public function setDocument(?MediaContract $document): TrustupIoSignedDocumentContract
     {
         $this->document = $document ?? null;
         return $this;

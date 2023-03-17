@@ -4,6 +4,7 @@ namespace Deegitalbe\TrustupIoSign\Contracts\Models;
 
 use Illuminate\Support\Carbon;
 use Illuminate\Support\Collection;
+use Deegitalbe\TrustupIoSign\Contracts\Models\MediaContract;
 
 
 interface TrustupIoSignedDocumentContract
@@ -21,8 +22,8 @@ interface TrustupIoSignedDocumentContract
     public function getSignedAt(): string;
 
 
-    /** @return Collection */
-    public function getDocument(): ?Collection;
+    /** @return MediaContract */
+    public function getDocument(): ?MediaContract;
 
     public function setId(int $id): TrustupIoSignedDocumentContract;
 
@@ -46,7 +47,7 @@ interface TrustupIoSignedDocumentContract
 
     public function setSignedAt(Carbon $signedAt): TrustupIoSignedDocumentContract;
 
-    public function setDocument(?Collection $document): TrustupIoSignedDocumentContract;
+    public function setDocument(?MediaContract $document): TrustupIoSignedDocumentContract;
 
     public function fromArray(array $attributes): TrustupIoSignedDocumentContract;
 }

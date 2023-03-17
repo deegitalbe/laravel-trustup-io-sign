@@ -10,7 +10,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class UserWithRelations extends Model implements HasManyTrustupIoSignedDocumentRelatedModelContract
 {
-    use HasManyTrustupIoSignedDocumentRelatedModel, IsTrustupIoSignedDocumentRelatedModel, SoftDeletes;
+    use HasManyTrustupIoSignedDocumentRelatedModel, SoftDeletes;
 
     protected $table = "users_with_relations";
     protected $fillable =  ["id", "name", "email", "password", "uuid"];

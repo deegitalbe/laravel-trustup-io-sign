@@ -98,7 +98,7 @@ class IndexSignedDocumentResponseTest extends TestCase
     {
         $test = ["somekey" => "withdata"];
         $arr = ['data' => [$test]];
-        // collect($arr)->map((fn (array $attributes) => dd($attributes)));
+
         $signedResponse = $this->mockIndexSignedDocumentResponse();
         $tryResponse = $this->mockTryResponseContract();
         $responseContract = $this->mockResponseContract();

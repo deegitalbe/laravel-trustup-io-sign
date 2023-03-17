@@ -27,9 +27,9 @@ Provide all model where you need your relations.
     ]
 ```
 
-## 🛠️ Default trait.
+## 🛠️ Default installation BelongsTo relation.
 
-With DefaultTrustupIoSignedDocumentRelatedModel. All necessary methods are already defined.
+All necessary methods are already defined.
 Default model type identifier is set to uuid.
 
 ```shell
@@ -37,12 +37,12 @@ Default model type identifier is set to uuid.
 
 namespace App\Models;
 
-use Deegitalbe\TrustupIoSign\Contracts\Models\DefaultTrustupIoSignedDocumentRelatedModelContract;
+use Deegitalbe\TrustupIoSign\Contracts\Models\BelongsToTrustupIoSignedDocumentRelatedModelContract;
 use Deegitalbe\TrustupIoSign\Models\DefaultTrustupIoSignedDocumentRelatedModel;
 
-class Ticket implements DefaultTrustupIoSignedDocumentRelatedModelContract
+class Ticket implements BelongsToTrustupIoSignedDocumentRelatedModelContract
 {
-    use DefaultTrustupIoSignedDocumentRelatedModel;
+    use BelongsToTrustupIoSignedDocumentRelatedModel;
 
     public function getTrustupIoSignOriginalPdfUrl(): string
     {
@@ -56,7 +56,41 @@ class Ticket implements DefaultTrustupIoSignedDocumentRelatedModelContract
 }
 ```
 
-## 🛠️ trait with relation trait.
+## 🛠️ Default installation HasMany relation.
+
+All necessary methods are already defined.
+Default model type identifier is set to uuid.
+
+```shell
+<?php
+
+namespace App\Models;
+
+use Deegitalbe\TrustupIoSign\Contracts\Models\HasManyTrustupIoSignedDocumentRelatedModelContract;
+use Deegitalbe\TrustupIoSign\Models\HasManyTrustupIoSignedDocumentRelatedModel;
+
+class Ticket implements HasManyTrustupIoSignedDocumentRelatedModelContract
+{
+    use HasManyTrustupIoSignedDocumentRelatedModel;
+
+    protected $casts = [
+        "trustup_io_signed_document_uuids" => 'collection'
+
+    ];
+
+    public function getTrustupIoSignOriginalPdfUrl(): string
+    {
+        return 'https://eforms.com/download/2019/08/Service-Contract-Template.pdf';
+    }
+
+    public function getTrustupIoSignCallbackUrl(): string
+    {
+        return 'https://www.google.com';
+    }
+}
+```
+
+## 🛠️ Custom with relation.
 
 ```shell
 <?php
@@ -66,19 +100,13 @@ namespace App\Models;
 use Deegitalbe\TrustupIoSign\Contracts\Models\TrustupIoSignedDocumentRelatedModelWithRelationsContract;
 use Deegitalbe\TrustupIoSign\Models\IsTrustupIoSignedDocumentRelatedModelWithRelations;
 
-class Ticket implements TrustupIoSignedDocumentRelatedModelWithRelationsContract
+class Ticket implements WithRelationTrustupIoSignedDocumentRelatedModelContract
 {
-    use IsTrustupIoSignedDocumentRelatedModelWithRelations;
+    use WithRelationTrustupIoSignedDocumentRelatedModel;
 
     public function getTrustupIoSignedDocumentColumn(): string
     {
         return 'you-column';
-    }
-
-        public function getTrustupIoSignModelTypeIdentifier(): string
-    {
-        // id,uuid,etc
-        return "your-model-identifier";
     }
 
     // DEFINE YOUR RELATION.
@@ -97,6 +125,32 @@ class Ticket implements TrustupIoSignedDocumentRelatedModelWithRelationsContract
         return $this->getExternalModels('trustupIoSignedDocuments');
     }
 
+    public function getTrustupIoSignModelTypeIdentifier(): string
+    {
+        // id,uuid,etc
+        return "your-model-identifier";
+    }
+
+    public function getTrustupIoSignModelId(): string
+    {
+        return "your-model-id"
+    }
+
+    public function getTrustupIoSignModelType(): string
+    {
+        return "your-model-type"
+    }
+
+    public function getTrustupIoSignAppKey(): string
+    {
+        return "your-app-key"
+    }
+
+    public function getTrustupIoSignWebhookUrl(): string
+    {
+        return "your-webhook-url";
+    }
+
     public function getTrustupIoSignOriginalPdfUrl(): string
     {
         return 'https://eforms.com/download/2019/08/Service-Contract-Template.pdf';
@@ -106,12 +160,13 @@ class Ticket implements TrustupIoSignedDocumentRelatedModelWithRelationsContract
     {
         return 'https://www.google.com';
     }
+
 }
 ```
 
 ## 🛠️ Common trait.
 
-Both trait implements IsTrustupIoSignedDocumentRelatedModel.
+Both belongsTo and HasMany traits implements IsTrustupIoSignedDocumentRelatedModel.
 Feel free to overide it for your use case.
 
 ```shell
@@ -185,48 +240,68 @@ trait IsTrustupIoSignedDocumentRelatedModel
 
 ```
 
-## ⚡⚡ Migration relation trait.
+## ⚡⚡ Migration BelongsTo trait.
 
 By default the column is set to trustup_io_signed_document_uuid and type `string` but feel free to overide it.
 
 ```shell
 <?php
 
+namespace Deegitalbe\TrustupIoSign\Services\Traits;
 
-use Deegitalbe\TrustupIoSign\Services\Traits\TrustupioSignedDocumentRelatedMigrations;
-use Illuminate\Database\Migrations\Migration;
-use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
+use Illuminate\Database\Schema\Blueprint;
 
-class CreateUsersTable extends Migration
+trait BelongsToTrustupioSignedDocumentRelatedMigrations
 {
-    use TrustupioSignedDocumentRelatedMigrations;
-    /**
-     * Run the migrations.
-     *
-     * @return void
-     */
-    public function up()
+    public function addSignedDocumentColumn(string $model, string  $column = 'trustup_io_signed_document_uuid'): void
     {
-        Schema::create('users', function (Blueprint $table) {
-            /**
-            Your stuff
-             */
+        Schema::table($model, function (Blueprint $table) use ($column) {
+            $table->string($column)->nullable();
         });
-            $this->addSignedDocumentColumn("tickets", "trustup_io_signed_document_uuid");
     }
 
-    /**
-     * Reverse the migrations.
-     *
-     * @return void
-     */
-    public function down()
+    public function removeSignedDocumentColumn(string $table, string  $column = 'trustup_io_signed_document_uuid'): void
     {
-        Schema::dropIfExists('users');
-        // $this->removeSignedDocumentColumn('users', 'trustup_io_audit_log_uuids');
+        Schema::table($table, function (Blueprint $table) use ($column) {
+            $table->dropColumn($column);
+        });
     }
 }
+
+```
+
+## ⚡⚡ Migration HasMany trait.
+
+By default the column is set to trustup_io_signed_document_uuids and type `json` but feel free to overide it.
+Note: Remember to cast as collection in your model !!!
+
+```shell
+<?php
+
+namespace Deegitalbe\TrustupIoSign\Services\Traits;
+
+use Illuminate\Support\Facades\Schema;
+use Illuminate\Database\Schema\Blueprint;
+
+trait HasManyTrustupioSignedDocumentRelatedMigrations
+{
+    public function addSignedDocumentColumn(string $model, string  $column = 'trustup_io_signed_document_uuids'): void
+    {
+        Schema::table($model, function (Blueprint $table) use ($column) {
+            $table->json($column)->nullable();
+        });
+    }
+
+    public function removeSignedDocumentColumn(string $table, string  $column = 'trustup_io_signed_document_uuids'): void
+    {
+        Schema::table($table, function (Blueprint $table) use ($column) {
+            $table->dropColumn($column);
+        });
+    }
+}
+
+
 ```
 
 Webhook data structure
@@ -234,33 +309,40 @@ Webhook data structure
 ```js
 
 {
-  "id": 54,
-  "uuid": "507e8842-0312-437e-aedd-795463661de2",
-  "model_id": "2eaadfed-3f6c-409e-960b-059f0490445d",
-  "model_type": "ticket",
-  "app_key": "trustup-io-ticketing",
-  "document_uuid": "6d1441ad-617c-4ae3-8089-754a76c960e9",
-  "file_url": "https://eforms.com/download/2019/08/Service-Contract-Template.pdf",
-  "ip": "192.168.144.8",
-  "device": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/110.0.0.0 Safari/537.36",
-  "screen_width": 708,
-  "screen_height": 750,
-  "created_at": "2023-03-16T11:21:30.000000Z",
-  "updated_at": "2023-03-16T11:21:30.000000Z",
-  "deleted_at": null,
-  "location": []
+ "id": 43,
+  "uuid": "6dcc41ca-b3b3-4027-9a52-190c249f0606",
+  "ip": "192.168.240.8",
+  "timezone": null,
+  "latitude": null,
+  "longitude": null,
+  "modelId": "44b1f149-5dd8-494c-a7ec-52edeb666c18",
+  "modelType": "ticket",
+  "appKey": "trustup-io-ticketing",
+  "documentUuid": "e0f26d6a-206f-4ed1-b244-e41e7a4f33f1",
+  "signedAt": "2023-03-16T16:35:17.000000Z",
+  "document": {
+    "app_key": "trustup-io-sign",
+    "collection": "files",
+    "conversions": [],
+    "custom_properties": {
+      "width": null,
+      "height": null
+    },
+    "id": 349,
+    "model_id": "6dcc41ca-b3b3-4027-9a52-190c249f0606",
+    "model_type": "signeddocument",
+    "uuid": "e0f26d6a-206f-4ed1-b244-e41e7a4f33f1",
+    "url": "https://media.trustup.io.test/storage/e0f26d6a-206f-4ed1-b244-e41e7a4f33f1/lGlUXJYi.pdf",
+    "optimized": {
+      "url": "https://media.trustup.io.test/storage/e0f26d6a-206f-4ed1-b244-e41e7a4f33f1/lGlUXJYi.pdf",
+      "name": "original",
+      "width": null,
+      "height": null
+    },
+    "width": null,
+    "height": null,
+    "name": "lGlUXJYi.pdf"
+  }
 }
 
-```
-
-## Listener configuration
-
-Add any of those interfaces to your listener to customize it.
-
-### Limit to your current app only
-
-```php
-use Deegitalbe\LaravelTrustupIoMessagingWebhooksListeners\Contracts\Listeners\Config\ListenToCorrespondingAppKey;
-
-class MessageCreatedListener implements ListenToCorrespondingAppKey
 ```

@@ -13,7 +13,7 @@ interface WithRelationTrustupIoSignedDocumentRelatedModelContract extends Trustu
     public function trustupIoSignedDocuments(): ExternalModelRelationContract;
 
     /** @return Collection<int, TrustupIoSignedDocumentContract> */
-    public function getTrustupIoSignedDocuments(): Collection;
+    public function getTrustupIoSignedDocuments(): Collection|TrustupIoSignedDocumentContract;
 
     /**
      * Trait should define a defalut value for this column.

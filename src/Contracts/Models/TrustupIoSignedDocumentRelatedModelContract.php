@@ -19,7 +19,5 @@ interface TrustupIoSignedDocumentRelatedModelContract
 
     public function getTrustupIoSignWebhookUrl(): string;
 
-    public function getTrustupIoSignUrl(?string $callback = null, ?string $webhook = null): string;
-
     public function getTrustupIoSignAppKey(): string;
 }

@@ -5,12 +5,11 @@ namespace Deegitalbe\TrustupIoSign\Tests\Models;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Deegitalbe\TrustupIoSign\Contracts\Models\BelongsToTrustupIoSignedDocumentRelatedModelContract;
 use Deegitalbe\TrustupIoSign\Models\BelongsToTrustupIoSignedDocumentRelatedModel;
-use Deegitalbe\TrustupIoSign\Models\IsTrustupIoSignedDocumentRelatedModel;
 use Illuminate\Database\Eloquent\Model;
 
 class Invoice extends Model implements BelongsToTrustupIoSignedDocumentRelatedModelContract
 {
-    use  BelongsToTrustupIoSignedDocumentRelatedModel, IsTrustupIoSignedDocumentRelatedModel, SoftDeletes;
+    use  BelongsToTrustupIoSignedDocumentRelatedModel, SoftDeletes;
 
     protected $table = "invoices";
     protected $fillable =  ["id", "uuid", "trustup_io_signed_document_uuid"];

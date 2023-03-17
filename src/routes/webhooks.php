@@ -1,5 +1,3 @@
-namespace Deegitalbe\TrustupIoSign\routes;
-
 <?php
 
 use Illuminate\Support\Facades\Route;
