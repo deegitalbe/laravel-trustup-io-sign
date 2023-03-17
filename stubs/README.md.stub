@@ -1,7 +1,0 @@
-# {kebabName}
-{description}
-
-## Installation
-```shell
-composer install {kebabNamespace}/{kebabName}
-```

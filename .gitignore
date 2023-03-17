@@ -1,2 +1,6 @@
 vendor/
 .phpunit.result.cache
+composer.json
+.DS_Store
+.vscode/settings.json
+settings.json

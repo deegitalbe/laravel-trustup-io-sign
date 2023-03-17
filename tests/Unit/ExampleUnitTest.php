@@ -1,12 +1,18 @@
 <?php
-namespace Henrotaym\VersioningPackageTemplate\Tests\Unit;
 
-use Henrotaym\VersioningPackageTemplate\Tests\TestCase;
+namespace Deegitalbe\TrustupIoSign\Tests\Unit;
+
+use Deegitalbe\TrustupIoSign\Tests\TestCase;
+use Deegitalbe\TrustupIoSign\Facades\TrustupIoSign;
+use Deegitalbe\TrustupIoSign\Facades\TrustupIoSignFacade;
 
 class ExampleUnitTest extends TestCase
 {
-    public function test_it_can_assert_true()
+    public function test_it_can_instanciate_facade()
     {
-        $this->assertTrue(true);
+        $this->assertInstanceOf(
+            TrustupIoSignFacade::class,
+            $this->app->make(TrustupIoSignFacade::class)
+        );
     }
 }

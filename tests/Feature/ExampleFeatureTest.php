@@ -1,7 +1,8 @@
 <?php
-namespace Henrotaym\VersioningPackageTemplate\Tests\Feature;
 
-use Henrotaym\VersioningPackageTemplate\Tests\TestCase;
+namespace Deegitalbe\TrustupIoSign\Tests\Feature;
+
+use Deegitalbe\TrustupIoSign\Tests\TestCase;
 
 class ExampleFeatureTest extends TestCase
 {
