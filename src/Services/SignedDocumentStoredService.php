@@ -3,12 +3,10 @@
 namespace Deegitalbe\TrustupIoSign\Services;
 
 use Illuminate\Support\Facades\Log;
-use Illuminate\Support\Facades\Schema;
 use Deegitalbe\TrustupIoSign\Facades\TrustupIoSignFacade;
 use Deegitalbe\TrustupIoSign\Contracts\Services\SignedDocumentStoredServiceContract;
 use Deegitalbe\TrustupIoSign\Contracts\Models\HasManyTrustupIoSignedDocumentRelatedModelContract;
 use Deegitalbe\TrustupIoSign\Contracts\Models\BelongsToTrustupIoSignedDocumentRelatedModelContract;
-use Deegitalbe\TrustupIoSign\Contracts\Models\WithRelationTrustupIoSignedDocumentRelatedModelContract;
 
 class SignedDocumentStoredService implements SignedDocumentStoredServiceContract
 {

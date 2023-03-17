@@ -5,11 +5,7 @@ namespace Deegitalbe\TrustupIoSign\Tests\Models;
 use Illuminate\Support\Collection;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
-use Deegitalbe\TrustupIoSign\Tests\traits\isUserWithRelated;
 use Deegitalbe\TrustupIoSign\Contracts\Models\TrustupIoSignedDocumentContract;
-use Deegitalbe\TrustupIoSign\Models\WithRelationTrustupIoSignedDocumentRelatedModel;
-use Deegitalbe\LaravelTrustupIoExternalModelRelations\Traits\Models\IsExternalModelRelatedModel;
-use Deegitalbe\TrustupIoSign\Contracts\Models\WithRelationTrustupIoSignedDocumentRelatedModelContract;
 use Deegitalbe\LaravelTrustupIoExternalModelRelations\Contracts\Models\Relations\ExternalModelRelationContract;
 
 // 
