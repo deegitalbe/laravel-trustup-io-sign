@@ -2,7 +2,7 @@
 
 namespace Deegitalbe\TrustupIoSign\Tests\database\migrations;
 
-
+use Deegitalbe\TrustupIoSign\Services\Traits\BelongsToTrustupioSignedDocumentRelatedMigrations;
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
@@ -10,7 +10,7 @@ use Deegitalbe\TrustupIoSign\Services\Traits\TrustupioSignedDocumentRelatedMigra
 
 class CreateInvoicesTable extends Migration
 {
-    use TrustupioSignedDocumentRelatedMigrations;
+    use BelongsToTrustupioSignedDocumentRelatedMigrations;
     /**
      * Run the migrations.
      *

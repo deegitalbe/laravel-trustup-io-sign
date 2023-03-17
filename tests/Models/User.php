@@ -13,9 +13,9 @@ use Deegitalbe\TrustupIoSign\Contracts\Models\WithRelationTrustupIoSignedDocumen
 use Deegitalbe\LaravelTrustupIoExternalModelRelations\Contracts\Models\Relations\ExternalModelRelationContract;
 
 // 
-class User extends Model implements WithRelationTrustupIoSignedDocumentRelatedModelContract
+class User extends Model
 {
-    use WithRelationTrustupIoSignedDocumentRelatedModel, SoftDeletes;
+    use  SoftDeletes;
     protected $table = "users";
     protected $uuid = "test";
     protected $fillable = ["id", "name", "email", "password", "uuid"];

@@ -20,9 +20,6 @@ class SignedDocumentStoredService implements SignedDocumentStoredServiceContract
 
         $model = $this->getModel($attributes);
 
-        $columnType =  Schema::getColumnType($model->getTable(), $model->getTrustupIoSignedDocumentsColumn());
-
-
         if (!$model) {
             Log::alert("SignedDocument Service", ["error" =>  "Could not find corresponding model."]);
         }
@@ -32,17 +29,11 @@ class SignedDocumentStoredService implements SignedDocumentStoredServiceContract
             return;
         endif;
 
-        if ($model instanceof WithRelationTrustupIoSignedDocumentRelatedModelContract && $columnType === "string") :
-            $model->trustupIoSignedDocuments()->setRelatedModelsByIds($attributes['uuid']);
-            return;
-        endif;
-
-
         $model->trustupIoSignedDocuments()->addToRelatedModelsByIds($attributes["uuid"]);
     }
 
 
-    protected function getModel(array $attributes): BelongsToTrustupIoSignedDocumentRelatedModelContract|HasManyTrustupIoSignedDocumentRelatedModelContract|WithRelationTrustupIoSignedDocumentRelatedModelContract
+    protected function getModel(array $attributes): BelongsToTrustupIoSignedDocumentRelatedModelContract|HasManyTrustupIoSignedDocumentRelatedModelContract
     {
         foreach (TrustupIoSignFacade::getConfig("models") as $modelClass) :
 

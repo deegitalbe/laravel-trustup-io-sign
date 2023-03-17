@@ -43,4 +43,26 @@ trait IsTrustupIoSignedDocumentRelatedModel
         // use this adress for locale container 'trustup-io-ticketing/webhooks/trustup-io-sign/signed-document/stored'.
         return route("webhooks.trustup-io-sign.signed-document.stored");
     }
+
+    public function getTrustupIoSignUrl(?string $callback = null, ?string $webhook = null): string
+    {
+        /** @var SignUrlService */
+        $signUrlService = app()->make(SignUrlService::class);
+        if ($callback) $this->setTrustupIoSignCallback($callback);
+        if ($webhook) $this->setTrustupIoSignWebhook($webhook);
+
+        return $signUrlService->generateUrl($this);
+    }
+
+    protected function setTrustupIoSignCallback(string $callback): self
+    {
+        $this->trustupIoSignCallback = $callback;
+        return $this;
+    }
+
+    protected function setTrustupIoSignWebhook($webhook): self
+    {
+        $this->trustupIoSignWebhook = $webhook;
+        return $this;
+    }
 }
