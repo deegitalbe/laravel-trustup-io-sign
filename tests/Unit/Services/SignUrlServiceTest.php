@@ -48,20 +48,26 @@ class SignUrlServiceTest extends TestCase
             "callback" => $callback,
             "modelId" => $callback,
             "modelType" => $callback,
-            "documentUrl" => $callback
+            "documentUrl" => $callback,
+            "webhook" => $callback,
+            "appKey" => $callback
+
         ];
 
         $model = $this->mockTrustupIoSignedDocument();
         $service = $this->mockThis(SignUrlService::class);
 
         $request = $this->mockRequestContract();
-        $request->shouldReceive("setUrl")->once()->with("trustup-io-sign")->andReturnSelf();
+        $request->shouldReceive("setUrl")->once()->with("https://sign.trustup.io.test")->andReturnSelf();
         $request->shouldReceive("addQuery")->once()->with($array)->andReturnSelf();
         $request->shouldReceive("url")->once()->withNoArgs()->andReturn($url);
         $model->shouldReceive("getTrustupIoSignCallbackUrl")->once()->withNoArgs()->andReturn($callback);
         $model->shouldReceive("getTrustupIoSignModelId")->once()->withNoArgs()->andReturn($callback);
         $model->shouldReceive("getTrustupIoSignModelType")->once()->withNoArgs()->andReturn($callback);
         $model->shouldReceive("getTrustupIoSignOriginalPdfUrl")->once()->withNoArgs()->andReturn($callback);
+        $model->shouldReceive("getTrustupIoSignWebhookUrl")->once()->withNoArgs()->andReturn($callback);
+        $model->shouldReceive("getTrustupIoSignAppKey")->once()->withNoArgs()->andReturn($callback);
+
         $service->shouldReceive("generateUrl")->once()->with($model)->passthru();
 
         $urlService = app()->make(SignUrlService::class);

@@ -14,6 +14,7 @@ use Deegitalbe\TrustupIoSign\Contracts\Models\TrustupIoSignedDocumentContract;
 use Deegitalbe\LaravelTrustupIoExternalModelRelations\Contracts\Models\ExternalModelContract;
 use Deegitalbe\LaravelTrustupIoExternalModelRelations\Contracts\Models\Relations\ExternalModelRelationContract;
 use Deegitalbe\LaravelTrustupIoExternalModelRelations\Contracts\Models\Relations\ExternalModelRelationSubscriberContract;
+use Deegitalbe\TrustupIoSign\Tests\Models\User;
 
 class IsTrustupSignRelatedModelWithRelationTest extends TestCase
 {
@@ -31,6 +32,17 @@ class IsTrustupSignRelatedModelWithRelationTest extends TestCase
     }
 
     /**
+     * Mocking User.
+     *
+     * @return User|MockInterface
+     */
+    protected function mockUser(): MockInterface
+    {
+        /** @var UserWithRelations */
+        return $this->mockThis(User::class);
+    }
+
+    /**
      * Mocking TrustupIoSignedDocumentContract.
      *
      * @return TrustupIoSignedDocumentContract|MockInterface
@@ -45,37 +57,21 @@ class IsTrustupSignRelatedModelWithRelationTest extends TestCase
     {
         $class = $this->mockUserWithRelations();
 
-        $class->shouldReceive('getTrustupIoSignedDocumentColumn')->once()->withNoArgs()->passthru();
+        $class->shouldReceive('getTrustupIoSignedDocumentsColumn')->once()->withNoArgs()->passthru();
 
-        $this->assertEquals("trustup_io_signed_document_uuid", $class->getTrustupIoSignedDocumentColumn());
+        $this->assertEquals("trustup_io_signed_document_uuids", $class->getTrustupIoSignedDocumentsColumn());
     }
 
-    public function test_that_it_can_get_relation_document_on_user_with_relation()
+    public function test_that_it_can_get_relation_document_on_user()
     {
         $external = $this->mockThis(ExternalModelRelationContract::class);
-        $class = $this->mockUserWithRelations();
+        $class = $this->mockUser();
 
         $class->shouldReceive("getTrustupIoSignedDocumentColumn")->once()->withNoArgs()->andReturn("trustup_io_signed_document_uuid");
         $class->shouldReceive("belongsToTrustupIoSignedDocument")->once()->with("trustup_io_signed_document_uuid")->andReturn($external);
-        $class->shouldReceive('document')->once()->withNoArgs()->passthru();
+        $class->shouldReceive('trustupIoSignedDocument')->once()->withNoArgs()->passthru();
 
-        $class->document();
-    }
-
-
-    public function test_that_it_can_set_a_signed_document()
-    {
-        $external = $this->mockThis(ExternalModelRelationContract::class);
-        $class = $this->mockUserWithRelations();
-        $model = $this->mockTrustupIoSignedDocument();
-        $ext = $this->mockThis(ExternalModelContract::class);
-        // TODO FAKE MODEL
-        $class->shouldReceive("document")->once()->withNoArgs()->andReturn($external);
-        $external->shouldReceive("setRelatedModelsByIds")->once()->with("test")->andReturnSelf();
-        $class->shouldReceive("getIdentifier")->once()->with($model)->andReturn("test");
-        $class->shouldReceive('setTrustupIoSignedDocument')->once()->with($model)->passthru();
-
-        $class->setTrustupIoSignedDocument($model);
+        $class->trustupIoSignedDocument();
     }
 
     // public function test_that_it_can_set_a_signed_document_with_null()
