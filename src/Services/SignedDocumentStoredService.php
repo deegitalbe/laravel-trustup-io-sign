@@ -2,12 +2,13 @@
 
 namespace Deegitalbe\TrustupIoSign\Services;
 
-use Deegitalbe\TrustupIoSign\Contracts\Models\BelongsToTrustupIoSignedDocumentRelatedModelContract;
-use Deegitalbe\TrustupIoSign\Contracts\Services\SignedDocumentStoredServiceContract;
-use Deegitalbe\TrustupIoSign\Contracts\Models\DefaultTrustupIoSignedDocumentRelatedModelContract;
-use Deegitalbe\TrustupIoSign\Contracts\Models\HasManyTrustupIoSignedDocumentRelatedModelContract;
-use Deegitalbe\TrustupIoSign\Facades\TrustupIoSignFacade;
 use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\Schema;
+use Deegitalbe\TrustupIoSign\Facades\TrustupIoSignFacade;
+use Deegitalbe\TrustupIoSign\Contracts\Services\SignedDocumentStoredServiceContract;
+use Deegitalbe\TrustupIoSign\Contracts\Models\HasManyTrustupIoSignedDocumentRelatedModelContract;
+use Deegitalbe\TrustupIoSign\Contracts\Models\BelongsToTrustupIoSignedDocumentRelatedModelContract;
+use Deegitalbe\TrustupIoSign\Contracts\Models\WithRelationTrustupIoSignedDocumentRelatedModelContract;
 
 class SignedDocumentStoredService implements SignedDocumentStoredServiceContract
 {
@@ -19,6 +20,9 @@ class SignedDocumentStoredService implements SignedDocumentStoredServiceContract
 
         $model = $this->getModel($attributes);
 
+        $columnType =  Schema::getColumnType($model->getTable(), $model->getTrustupIoSignedDocumentsColumn());
+
+
         if (!$model) {
             Log::alert("SignedDocument Service", ["error" =>  "Could not find corresponding model."]);
         }
@@ -28,11 +32,17 @@ class SignedDocumentStoredService implements SignedDocumentStoredServiceContract
             return;
         endif;
 
+        if ($model instanceof WithRelationTrustupIoSignedDocumentRelatedModelContract && $columnType === "string") :
+            $model->trustupIoSignedDocuments()->setRelatedModelsByIds($attributes['uuid']);
+            return;
+        endif;
+
+
         $model->trustupIoSignedDocuments()->addToRelatedModelsByIds($attributes["uuid"]);
     }
 
 
-    protected function getModel(array $attributes): BelongsToTrustupIoSignedDocumentRelatedModelContract|HasManyTrustupIoSignedDocumentRelatedModelContract
+    protected function getModel(array $attributes): BelongsToTrustupIoSignedDocumentRelatedModelContract|HasManyTrustupIoSignedDocumentRelatedModelContract|WithRelationTrustupIoSignedDocumentRelatedModelContract
     {
         foreach (TrustupIoSignFacade::getConfig("models") as $modelClass) :
 
