@@ -27,6 +27,14 @@ Provide all model where you need your relations.
     ]
 ```
 
+## Usage
+
+```shell
+    /** getTrustupIoSignUrl(?string $callback = null, ?string $webhook = null): string */
+    $yourmodel->getTrustupIoSignUrl();
+
+```
+
 ## 🛠️ Default installation BelongsTo relation.
 
 All necessary methods are already defined.
