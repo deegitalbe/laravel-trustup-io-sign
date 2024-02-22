@@ -15,7 +15,7 @@
         "henrotaym/laravel-api-client": "^1.8"
     },
     "require-dev": {
-        "orchestra/testbench": "^6.0",
+        "orchestra/testbench": "^7.0",
         "phpunit/phpunit": "^9.5"
     },
     "autoload": {
