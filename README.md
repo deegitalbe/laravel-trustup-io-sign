@@ -1,5 +1,5 @@
 # laravel-trustup-io-sign
-
+  
 ## Prerequisite
 
 This package uses `deegitalbe/server-authorization` package to authenticate requests. Refer to its [documentation](https://github.com/deegitalbe/server-authorization) to make sure it's correctly configured on your project.

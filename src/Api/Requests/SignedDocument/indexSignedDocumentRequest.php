@@ -7,6 +7,7 @@ use Deegitalbe\TrustupIoSign\Contracts\Api\Requests\SignedDocument\IndexSignedDo
 
 class IndexSignedDocumentRequest implements IndexSignedDocumentRequestContract
 {
+    
     /** @var Collection<int, string> */
     protected Collection $uuids;
 
