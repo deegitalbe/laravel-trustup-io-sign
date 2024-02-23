@@ -46,12 +46,11 @@ class SignUrlServiceTest extends TestCase
         $url = "trustup-io-sign?callback=https%3A%2F%2Fwww.{$callback}.com&modelId={$callback}&modelType={$callback}&documentUrl={$callback}";
         $array = [
             "callback" => $callback,
-            "modelId" => $callback,
-            "modelType" => $callback,
-            "documentUrl" => $callback,
+            "model_id" => $callback,
+            "model_type" => $callback,
+            "file_url" => $callback,
             "webhook" => $callback,
-            "appKey" => $callback
-
+            "app_key" => $callback
         ];
 
         $model = $this->mockTrustupIoSignedDocument();
