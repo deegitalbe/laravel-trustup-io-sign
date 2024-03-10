@@ -9,6 +9,7 @@ use Deegitalbe\TrustupIoSign\Contracts\Api\Endpoints\SignedDocument\SignedDocume
 use Deegitalbe\TrustupIoSign\Contracts\api\Requests\SignedDocument\IndexSignedDocumentRequestContract;
 use Deegitalbe\TrustupIoSign\Contracts\Api\Responses\signedDocument\IndexSignedDocumentResponseContract;
 use Deegitalbe\TrustupIoSign\Facades\TrustupIoSignFacade;
+use Henrotaym\LaravelApiClient\Contracts\RequestContract;
 
 class SignedDocumentEndpoint implements SignedDocumentEndpointContract
 {
