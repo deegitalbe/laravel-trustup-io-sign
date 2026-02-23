@@ -48,7 +48,7 @@ class TestCase extends VersionablePackageTestCase
     //     return ['/database/migrations/create_users_table.php', "/tests/database/migrations/create_users_table_with_relations_table.php"];
     // }
 
-    protected function getEnvironmentSetUp($app)
+    protected function getEnvironmentSetUp($app): void
     {
         // $app['config']->set('database.default', 'testbench');
         // $app['config']->set('database.connections.testbench', [

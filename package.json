@@ -1,11 +1,16 @@
 {
-    "name": "laravel-trustup-io-sign",
+    "name": "@deegitalbe/laravel-trustup-io-sign",
     "version": "1.0.1",
     "main": "index.js",
     "repository": "git@github.com:deegitalbe/laravel-trustup-io-sign.git",
     "author": "Pierre Wasilewski, Mathieu Henrotay <pierre.wasilewski@trustup.be>",
     "license": "MIT",
+    "private": true,
+    "devDependencies": {
+        "@changesets/cli": "^2.29.7"
+    },
     "scripts": {
+        "release": "changeset publish",
         "postversion": "git push && git push --tags"
     }
 }

@@ -1,14 +1,17 @@
-version: '3'
 services:
-  composer:
-    build:
-      dockerfile: ComposerDockerfile
-      context: .
-    volumes:
-      - ./:/usr/src/app
-  php:
+  cli:
     build:
       context: .
-      dockerfile: PhpDockerfile
+      target: cli
+      dockerfile: Dockerfile
+    image: "laravel-trustup-io-sign-php-local"
     volumes:
-      - ./:/usr/src/app
+      - ./:/opt/apps/app
+  bun:
+    build:
+      context: .
+      target: bun
+      dockerfile: Dockerfile
+    image: "laravel-trustup-io-sign-bun-local"
+    volumes:
+      - ./:/opt/apps/app

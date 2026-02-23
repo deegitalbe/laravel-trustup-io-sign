@@ -1,6 +1,6 @@
 vendor/
+node_modules/
 .phpunit.result.cache
-composer.json
 .DS_Store
-.vscode/settings.json
+.vscode/
 settings.json
